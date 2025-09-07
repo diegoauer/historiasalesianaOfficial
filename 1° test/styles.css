@@ -1,0 +1,716 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis CSS - Cores Salesianas */
+:root {
+    --salesiano-red: #C41E3A;
+    --salesiano-blue: #003366;
+    --salesiano-white: #FFFFFF;
+    --light-gray: #F5F5F5;
+    --dark-gray: #333333;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--salesiano-white);
+}
+
+/* Header e Navegação */
+.navbar {
+    background: #8394bd;
+    padding: 0.3rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+.navbar.scrolled {
+    background: #00298d;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 70px;
+    width: auto;
+}
+}
+
+.logo-text h1 {
+    color: var(--salesiano-white);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.logo-text p {
+    color: var(--salesiano-white);
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--salesiano-white);
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: var(--salesiano-white);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background-color: var(--salesiano-white);
+    border-radius: 2px;
+}
+
+/* Menu Hamburger para Mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--salesiano-white);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Main Content */
+main {
+    margin-top: 100px;
+    min-height: calc(100vh - 200px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Seções */
+.section {
+    display: none;
+    padding: 4rem 0;
+    min-height: 70vh;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap');
+
+/* Home Content */
+.nome-salesiano-img {
+    max-width: 80%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.historia-btn {
+    background: linear-gradient(135deg, var(--salesiano-red), #c41e3a);
+    color: var(--salesiano-white);
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.historia-btn:hover {
+    background: #003a8c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 74, 173, 0.4);
+}
+
+/* História Section */
+.historia-section {
+    background-color: #8394bd;
+    color: white;
+}
+
+.historia-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.historia-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.historia-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.historia-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-align: justify;
+    color: white;
+}
+
+.section.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Seção Home */
+.home-section {
+    background-image: url('images/galeria/edifício-salesiano.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    color: var(--salesiano-white);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.home-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    transition: background 0.3s ease;
+    z-index: 1;
+}
+
+.home-section.scrolled::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+
+.home-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    min-height: 60vh;
+    position: relative;
+    z-index: 2;
+}
+
+.home-content h2 {
+    color: var(--salesiano-white);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.home-content h2::after {
+    background: linear-gradient(90deg, var(--salesiano-white), rgba(255, 255, 255, 0.5));
+}
+
+.home-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--salesiano-white);
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.home-description p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--salesiano-white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section h2 {
+    color: var(--salesiano-blue);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--salesiano-red), var(--salesiano-blue));
+    border-radius: 2px;
+}
+
+.content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--dark-gray);
+    line-height: 1.8;
+}
+
+/* Placeholders para conteúdo futuro */
+.timeline-placeholder,
+.gallery-placeholder,
+.mission-placeholder,
+.tour-placeholder,
+.testimonials-placeholder {
+    background: var(--light-gray);
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 5px solid var(--salesiano-red);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.timeline-placeholder h3,
+.gallery-placeholder h3,
+.mission-placeholder h3,
+.tour-placeholder h3,
+.testimonials-placeholder h3 {
+    color: var(--salesiano-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-placeholder p,
+.gallery-placeholder p,
+.mission-placeholder p,
+.tour-placeholder p,
+.testimonials-placeholder p {
+    color: var(--dark-gray);
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    background-color: var(--salesiano-blue);
+    color: var(--salesiano-white);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Estilos do Mural */
+.mural-content {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mural-btn {
+    background: linear-gradient(135deg, var(--salesiano-red), #c41e3a);
+    color: var(--salesiano-white);
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    margin-top: 1rem;
+}
+
+.mural-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+    background: linear-gradient(135deg, #c41e3a, var(--salesiano-red));
+}
+
+/* Estilos da Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--salesiano-white);
+    margin: 2% auto;
+    width: 95%;
+    max-width: 1200px;
+    height: 90vh;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: slideIn 0.3s ease;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--salesiano-red), var(--salesiano-blue));
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+    color: var(--salesiano-white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--salesiano-white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close {
+    color: var(--salesiano-white);
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    position: relative;
+    height: calc(90vh - 80px);
+    overflow: hidden;
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(220, 53, 69, 0.3);
+    border-top: 4px solid var(--salesiano-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+.loading p {
+    color: var(--salesiano-red);
+    font-weight: 600;
+    margin: 0;
+}
+
+#muralIframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 100px;
+        flex-direction: column;
+        background: var(--salesiano-blue);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px var(--shadow);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .logo-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .home-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .home-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .home-description p {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .timeline-placeholder,
+    .gallery-placeholder,
+    .mission-placeholder,
+    .tour-placeholder,
+    .testimonials-placeholder {
+        padding: 2rem 1rem;
+    }
+
+    .modal-content {
+        width: 98%;
+        height: 95vh;
+        margin: 1% auto;
+    }
+
+    .modal-header {
+        padding: 0.8rem 1rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .close {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+
+    .mural-content {
+        padding: 1.5rem;
+    }
+
+    .mural-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo-img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .logo-text h1 {
+        font-size: 1.3rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .home-content {
+        padding: 1.5rem;
+    }
+
+    .home-content h2 {
+        font-size: 2rem;
+    }
+
+    .home-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .home-description p {
+        font-size: 1rem;
+    }
+
+    .home-section {
+        background-attachment: scroll;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+
+    .nav-menu {
+        top: 90px;
+    }
+
+    main {
+        margin-top: 90px;
+    }
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História Salesiana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/logo-salesiano.png" alt="Logo Salesiano" class="logo-img">
+
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#historia" class="nav-link">HISTÓRIA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#mural" class="nav-link">MURAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#quem-somos" class="nav-link">QUEM SOMOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tour-virtual" class="nav-link">TOUR VIRTUAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#depoimentos" class="nav-link">DEPOIMENTOS</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção Home -->
+        <section id="home" class="section active home-section">
+            <div class="container">
+                <img src="images/galeria/nome-salesiano-negrito.png" alt="Nome Salesiano" class="nome-salesiano-img">
+                <button class="historia-btn" onclick="scrollToHistoria()">Conheça Nossa História</button>
+            </div>
+        </section>
+
+        <!-- História Section -->
+        <section id="historia" class="section historia-section">
+            <div class="container">
+                <h2>ONDE TUDO COMEÇOU</h2>
+                <h3>22 de julho de 1943</h3>
+                <div class="historia-content">
+                    <p>O Colégio Salesiano Nossa Senhora da Vitória foi a primeira unidade salesiana fundada na capital do Espírito Santo. Em 22 de julho de 1943, a escola acolheu seus primeiros alunos na sede no Centro da cidade e logo conquistou o coração dos capixabas com sua proposta pedagógica-pastoral.</p>
+                    <p>A unidade do Forte São João, com vista para a Baía de Vitória, foi inaugurada em 11 de julho de 1951, com muito entusiasmo, e há 80 anos vem acolhendo alunos do Ensino Fundamental ao Ensino Médio. Nomes expressivos na cultura, política, economia e educação capixaba tiveram formação salesiana.</p>
+                    <p>Os estudantes do Colégio Salesiano Nossa Senhora da Vitória contam com um projeto pedagógico de excelência em aprendizagem, destacando os valores humanos, a cidadania, o compromisso com o desenvolvimento sustentável e o respeito às diferenças.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Mural -->
+        <section id="mural" class="section">
+            <div class="container">
+                <h2>Mural Participativo</h2>
+                <div class="content">
+                    <div class="mural-content">
+                        <h3>Contribua para Nossa História</h3>
+                        <p>Clique no botão abaixo para acessar nosso mural participativo e compartilhar suas experiências, fotos e memórias do Colégio Salesiano.</p>
+                        <button class="mural-btn" onclick="openMuralModal()">Acessar Mural Participativo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Quem Somos -->
+        <section id="quem-somos" class="section">
+            <div class="container">
+                <h2>Quem Somos</h2>
+                <div class="content">
+                    <p>Conheça nossa missão, valores e a tradição salesiana que nos guia.</p>
+                    <div class="mission-placeholder">
+                        <h3>Nossa Missão</h3>
+                        <p>Informações sobre a filosofia educacional salesiana e nossos valores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Tour Virtual -->
+        <section id="tour-virtual" class="section">
+            <div class="container">
+                <h2>Tour Virtual</h2>
+                <div class="content">
+                    <p>Explore virtualmente nossos espaços e conheça cada cantinho da nossa instituição.</p>
+                    <div class="tour-placeholder">
+                        <h3>Navegação Virtual</h3>
+                        <p>Aqui será implementado o tour virtual pelos ambientes da escola.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Depoimentos -->
+        <section id="depoimentos" class="section">
+            <div class="container">
+                <h2>Depoimentos</h2>
+                <div class="content">
+                    <p>Histórias e memórias de quem fez parte da nossa comunidade educativa.</p>
+                    <div class="testimonials-placeholder">
+                        <h3>Vozes da Comunidade</h3>
+                        <p>Depoimentos de ex-alunos, professores e funcionários.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Ambiente Educacional Salesiano - Vitória, Forte São João</p>
+        </div>
+    </footer>
+
+    <!-- Modal do Mural -->
+    <div id="muralModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mural Participativo - Colégio Salesiano</h2>
+                <span class="close" onclick="closeMuralModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="loading" id="muralLoading">
+                    <div class="spinner"></div>
+                    <p>Carregando mural...</p>
+                </div>
+                <iframe id="muralIframe" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
