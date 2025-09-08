@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>História Salesiana</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
     <header>
@@ -24,9 +25,7 @@
                     <li class="nav-item">
                         <a href="#mural" class="nav-link">MURAL</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#quem-somos" class="nav-link">QUEM SOMOS</a>
-                    </li>
+
                     <li class="nav-item">
                         <a href="#tour-virtual" class="nav-link">TOUR VIRTUAL</a>
                     </li>
@@ -44,23 +43,283 @@
     </header>
 
     <main>
-        <!-- Seção Home -->
-        <section id="home" class="section active home-section">
+        <!-- Home Section -->
+        <section id="home" class="section home-section">
             <div class="container">
-                <img src="images/galeria/nome-salesiano-negrito.png" alt="Nome Salesiano" class="nome-salesiano-img">
-                <button class="historia-btn" onclick="scrollToHistoria()">Conheça Nossa História</button>
+                <img src="images/galeria/edifício-salesiano.png" alt="Edifício Salesiano" class="home-image">
+                <img src="images/galeria/nome-salesiano-negrito.png" alt="Nome Salesiano" class="home-logo">
+                <a href="#historia" class="home-cta-button">Conheça a nossa história</a>
             </div>
         </section>
 
         <!-- História Section -->
         <section id="historia" class="section historia-section">
             <div class="container">
-                <h2>ONDE TUDO COMEÇOU</h2>
-                <h3>22 de julho de 1943</h3>
-                <div class="historia-content">
-                    <p>O Colégio Salesiano Nossa Senhora da Vitória foi a primeira unidade salesiana fundada na capital do Espírito Santo. Em 22 de julho de 1943, a escola acolheu seus primeiros alunos na sede no Centro da cidade e logo conquistou o coração dos capixabas com sua proposta pedagógica-pastoral.</p>
-                    <p>A unidade do Forte São João, com vista para a Baía de Vitória, foi inaugurada em 11 de julho de 1951, com muito entusiasmo, e há 80 anos vem acolhendo alunos do Ensino Fundamental ao Ensino Médio. Nomes expressivos na cultura, política, economia e educação capixaba tiveram formação salesiana.</p>
-                    <p>Os estudantes do Colégio Salesiano Nossa Senhora da Vitória contam com um projeto pedagógico de excelência em aprendizagem, destacando os valores humanos, a cidadania, o compromisso com o desenvolvimento sustentável e o respeito às diferenças.</p>
+                <img src="images/galeria/nome-salesiano-negrito.png" alt="Nome Salesiano" class="nome-salesiano-img">
+                <h2 id="onde-tudo-comecou">ONDE TUDO COMEÇOU</h2>
+                
+                <!-- Caixa de Pesquisa Flutuante -->
+                <div id="searchBox" class="search-box" style="display: block;">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Pesquisar na história..." class="search-input">
+                        <button id="searchBtn" class="search-btn">🔍</button>
+                        <button id="closeSearchBtn" class="close-search-btn">✕</button>
+                    </div>
+                    <div id="searchResults" class="search-results">
+                        <span id="searchCounter" class="search-counter"></span>
+                        <button id="prevResult" class="nav-result-btn">↑</button>
+                        <button id="nextResult" class="nav-result-btn">↓</button>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <!-- Primeiro evento da linha do tempo -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">1943</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal1')">
+                                <img src="images/historia/historia-salesiano.png" alt="História Salesiana">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>22 de julho de 1943</h3>
+                                <p>O Colégio Salesiano Nossa Senhora da Vitória foi a primeira unidade salesiana fundada na capital do Espírito Santo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Segundo evento da linha do tempo -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">1951</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal2')">
+                                <img src="images/historia/vista-cima-1951.png" alt="Vista aérea do Colégio Salesiano em 1951">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>11 de julho de 1951</h3>
+                                <p>A unidade do Forte São João, com vista para a Baía de Vitória, foi inaugurada com muito entusiasmo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Terceiro evento da linha do tempo -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">1978</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal3')">
+                                <img src="images/historia/vista-de-cima-1978.png" alt="Terminal Rodoviário Dom Bosco - 1978">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Terminal Rodoviário Dom Bosco - 1978</h3>
+                                <p>Terminal de passageiros ao lado do Colégio Salesiano em Vitória.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quarto evento da linha do tempo -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">1981</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal4')">
+                                <img src="images/historia/du Henning-e-Rick Wakeman 1981.jpg" alt="Edu Henning e Rick Wakeman - 1981">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Edu Henning e Rick Wakeman - 1981</h3>
+                                <p>Show do Ginásio Dom Bosco.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quinto evento da linha do tempo -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">1981</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal5')">
+                                <img src="images/historia/jogo-dombosco.png" alt="Harlem Globetrotters no ginásio Dom Bosco 1981">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Harlem Globetrotters - 1981</h3>
+                                <p>Harlem Globetrotters no ginásio Dom Bosco 1981.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sexto evento da linha do tempo -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">1982</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal6')">
+                                <img src="images/historia/ALCEU-VALENCA.png" alt="Show do cantor Alceu Valença no ginásio Dom Bosco em 1982">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Alceu Valença - 1982</h3>
+                                <p>Show do cantor Alceu Valença no ginásio Dom Bosco em 1982.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sétimo evento da linha do tempo -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">1982</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal7')">
+                                <img src="images/historia/NEY-MATOGROSSO.png" alt="Show do cantor Ney Matogrosso 1982">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Ney Matogrosso - 1982</h3>
+                                <p>Show do cantor Ney Matogrosso 1982.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modais para as imagens -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modal1')">&times;</span>
+                    <div class="modal-nav prev-nav" onclick="navigateModal('modal1', 'prev')">
+                        <span>&lt;</span>
+                    </div>
+                    <div class="modal-nav next-nav" onclick="navigateModal('modal1', 'next')">
+                        <span>&gt;</span>
+                    </div>
+                    <img src="images/historia/historia-salesiano.png" alt="História Salesiana">
+                    <div class="modal-text">
+                        <h3>Fundação - 22 de julho de 1943</h3>
+                        <p>O Colégio Salesiano Nossa Senhora da Vitória foi a primeira unidade salesiana fundada na capital do Espírito Santo. Em 22 de julho de 1943, a escola acolheu seus primeiros alunos na sede no Centro da cidade e logo conquistou o coração dos capixabas com sua proposta pedagógica-pastoral.</p>
+                        <p>Os estudantes do Colégio Salesiano Nossa Senhora da Vitória contam com um projeto pedagógico de excelência em aprendizagem, destacando os valores humanos, a cidadania, o compromisso com o desenvolvimento sustentável e o respeito às diferenças.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modal2')">&times;</span>
+                    <div class="modal-nav prev-nav" onclick="navigateModal('modal2', 'prev')">
+                        <span>&lt;</span>
+                    </div>
+                    <div class="modal-nav next-nav" onclick="navigateModal('modal2', 'next')">
+                        <span>&gt;</span>
+                    </div>
+                    <img src="images/historia/vista-cima-1951.png" alt="Vista aérea do Colégio Salesiano em 1951">
+                    <div class="modal-text">
+                        <h3>Vista aérea - 11 de julho de 1951</h3>
+                        <p>Esta imagem histórica mostra a vista aérea do Colégio Salesiano em 1951, capturando um momento importante na história da instituição e da cidade de Vitória.</p>
+                        <p>A unidade do Forte São João, com vista para a Baía de Vitória, foi inaugurada em 11 de julho de 1951, com muito entusiasmo, e há 80 anos vem acolhendo alunos do Ensino Fundamental ao Ensino Médio. Nomes expressivos na cultura, política, economia e educação capixaba tiveram formação salesiana.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modal3')">&times;</span>
+                    <div class="modal-nav prev-nav" onclick="navigateModal('modal3', 'prev')">
+                        <span>&lt;</span>
+                    </div>
+                    <div class="modal-nav next-nav" onclick="navigateModal('modal3', 'next')">
+                        <span>&gt;</span>
+                    </div>
+                    <img src="images/historia/vista-de-cima-1978.png" alt="Terminal Rodoviário Dom Bosco - 1978">
+                    <div class="modal-text">
+                        <h3>Terminal Rodoviário Dom Bosco - 1978</h3>
+                        <p>Terminal de passageiros ao lado do Colégio Salesiano em Vitória.</p>
+                        <p>A Rua Dom Bosco era uma via utilizada como terminal intermunicipal de ônibus. No local, havia módulos de alvenaria com comércio ambulante. O espaço era perigoso e inseguro. Ele foi desativado em 2009 em função da construção dos terminais do Transcol de São Torquato, em Vila Velha, e Jardim América, em Cariacica, na Grande Vitória.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="modal4" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modal4')">&times;</span>
+                    <div class="modal-nav prev-nav" onclick="navigateModal('modal4', 'prev')">
+                        <span>&lt;</span>
+                    </div>
+                    <div class="modal-nav next-nav" onclick="navigateModal('modal4', 'next')">
+                        <span>&gt;</span>
+                    </div>
+                    <img src="images/historia/du Henning-e-Rick Wakeman 1981.jpg" alt="Edu Henning e Rick Wakeman - 1981">
+                    <div class="modal-text">
+                        <h3>Edu Henning e Rick Wakeman - 1981</h3>
+                        <p>Show do Ginásio Dom Bosco.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="modal5" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modal5')">&times;</span>
+                    <div class="modal-nav prev-nav" onclick="navigateModal('modal5', 'prev')">
+                        <span>&lt;</span>
+                    </div>
+                    <div class="modal-nav next-nav" onclick="navigateModal('modal5', 'next')">
+                        <span>&gt;</span>
+                    </div>
+                    <img src="images/historia/jogo-dombosco.png" alt="Harlem Globetrotters no ginásio Dom Bosco 1981">
+                    <div class="modal-text">
+                        <h3>Harlem Globetrotters - 1981</h3>
+                        <p>Harlem Globetrotters no ginásio Dom Bosco 1981.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="modal6" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modal6')">&times;</span>
+                    <div class="modal-nav prev-nav" onclick="navigateModal('modal6', 'prev')">
+                        <span>&lt;</span>
+                    </div>
+                    <div class="modal-nav next-nav" onclick="navigateModal('modal6', 'next')">
+                        <span>&gt;</span>
+                    </div>
+                    <img src="images/historia/ALCEU-VALENCA.png" alt="Show do cantor Alceu Valença no ginásio Dom Bosco em 1982">
+                    <div class="modal-text">
+                        <h3>Alceu Valença - 1982</h3>
+                        <p>Show do cantor Alceu Valença no ginásio Dom Bosco em 1982.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="modal7" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modal7')">&times;</span>
+                    <div class="modal-nav prev-nav" onclick="navigateModal('modal7', 'prev')">
+                        <span>&lt;</span>
+                    </div>
+                    <div class="modal-nav next-nav" onclick="navigateModal('modal7', 'next')">
+                        <span>&gt;</span>
+                    </div>
+                    <img src="images/historia/NEY-MATOGROSSO.png" alt="Show do cantor Ney Matogrosso 1982">
+                    <div class="modal-text">
+                        <h3>Ney Matogrosso - 1982</h3>
+                        <p>Show do cantor Ney Matogrosso 1982.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -80,28 +339,91 @@
         </section>
 
         <!-- Seção Quem Somos -->
-        <section id="quem-somos" class="section">
-            <div class="container">
-                <h2>Quem Somos</h2>
-                <div class="content">
-                    <p>Conheça nossa missão, valores e a tradição salesiana que nos guia.</p>
-                    <div class="mission-placeholder">
-                        <h3>Nossa Missão</h3>
-                        <p>Informações sobre a filosofia educacional salesiana e nossos valores.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <!-- Seção Tour Virtual -->
         <section id="tour-virtual" class="section">
             <div class="container">
                 <h2>Tour Virtual</h2>
-                <div class="content">
-                    <p>Explore virtualmente nossos espaços e conheça cada cantinho da nossa instituição.</p>
-                    <div class="tour-placeholder">
-                        <h3>Navegação Virtual</h3>
-                        <p>Aqui será implementado o tour virtual pelos ambientes da escola.</p>
+                
+                <!-- Autenticação Administrador -->
+                <div class="admin-auth">
+                    <div class="auth-form">
+                        <input type="password" id="adminPassword" placeholder="Digite a senha de administrador" class="admin-password-input">
+                        <button type="button" onclick="authenticateAdmin()" class="btn-auth">Acessar Modo Admin</button>
+                    </div>
+                    <div class="admin-status" id="adminStatus" style="display: none;">
+                        <span class="status-text">✅ Modo Administrador Ativo</span>
+                        <button type="button" onclick="logoutAdmin()" class="btn-logout">Sair</button>
+                    </div>
+                </div>
+
+                <!-- Painel Administrativo -->
+                <div id="adminPanel" class="admin-panel" style="display: none;">
+                    <div class="admin-header">
+                        <h3>🔧 Painel Administrativo</h3>
+                        <p>Gerencie os pontos do tour virtual</p>
+                    </div>
+                    
+                    <div class="admin-form-container">
+                        <form id="addPointForm" class="admin-form">
+                            <div class="form-group">
+                                <label for="pointName">Nome do Ponto:</label>
+                                <input type="text" id="pointName" name="pointName" required placeholder="Ex: Biblioteca Central">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pointDescription">Descrição:</label>
+                                <textarea id="pointDescription" name="pointDescription" rows="3" placeholder="Descrição do local..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="panoramaImage">Imagem Panorâmica 360°:</label>
+                                <input type="file" id="panoramaImage" name="panoramaImage" accept="image/*" required>
+                                <small>Formatos aceitos: JPG, PNG (recomendado: proporção 2:1)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="positionX">Posição X (%):</label>
+                                <input type="number" id="positionX" name="positionX" min="0" max="100" value="50" step="0.1">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="positionY">Posição Y (%):</label>
+                                <input type="number" id="positionY" name="positionY" min="0" max="100" value="50" step="0.1">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">➕ Adicionar Ponto</button>
+                                <button type="button" class="btn-secondary" onclick="previewPoint()">👁️ Visualizar</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="admin-points-list">
+                        <h4>Pontos Existentes:</h4>
+                        <div id="pointsList" class="points-container">
+                            <!-- Pontos serão listados aqui dinamicamente -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tour-description">
+                    <p>Explore nosso campus através de um tour virtual interativo.</p>
+                </div>
+                
+                <div class="tour-content">
+                    <div class="tour-map-container">
+                        <img src="images/tour virtual/unisales-mapview.png" alt="Mapa do Campus" class="tour-map-img">
+                        
+                        <!-- Ponto padrão existente -->
+                        <svg class="location-icon location-pin" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="top: 48%; left: 52%;">
+                            <path d="M24 4C16.26 4 10 10.26 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.74-6.26-14-14-14z" fill="#FF4444" stroke="#FFFFFF" stroke-width="3"/>
+                            <circle cx="24" cy="18" r="5" fill="#FFFFFF"/>
+                        </svg>
+                        
+                        <!-- Container para pontos dinâmicos -->
+                        <div id="dynamicPoints"></div>
                     </div>
                 </div>
             </div>
@@ -124,7 +446,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Ambiente Educacional Salesiano - Vitória, Forte São João</p>
+            <p>&copy; 2025 Centro Educacional Salesiano - Vitória, Forte São João</p>
         </div>
     </footer>
 
@@ -145,6 +467,20 @@
         </div>
     </div>
 
+    <!-- Modal do Tour Virtual 360° -->
+    <div id="panoramaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tour Virtual 360°</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="panorama" class="panorama-viewer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
