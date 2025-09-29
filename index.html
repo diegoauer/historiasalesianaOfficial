@@ -5,27 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>História Salesiana</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="styles.css?v=13">
 </head>
-<body>
+<body class="historia">
     <header>
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <img src="images/logo-salesiano.png" alt="Logo Salesiano" class="logo-img">
-
+                    <img src="images/galeria/logo_unisales_branca_horizontal.png" alt="Logo Unisales" class="logo-img">
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="#home" class="nav-link active">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#historia" class="nav-link">HISTÓRIA</a>
+                        <a href="#historia" class="nav-link active">HISTÓRIA</a>
                     </li>
                     <li class="nav-item">
                         <a href="#mural" class="nav-link">MURAL</a>
                     </li>
-
                     <li class="nav-item">
                         <a href="#tour-virtual" class="nav-link">TOUR VIRTUAL</a>
                     </li>
@@ -33,6 +28,9 @@
                         <a href="#depoimentos" class="nav-link">DEPOIMENTOS</a>
                     </li>
                 </ul>
+                <button class="nav-user-btn" id="adminUserBtn" title="Área do Administrador">
+                    <img src="images/galeria/usuário-simbolo.png" alt="Admin"/>
+                </button>
                 <div class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -43,37 +41,53 @@
     </header>
 
     <main>
-        <!-- Home Section -->
-        <section id="home" class="section home-section">
-            <div class="container">
-                <img src="images/galeria/edifício-salesiano.png" alt="Edifício Salesiano" class="home-image">
-                <img src="images/galeria/nome-salesiano-negrito.png" alt="Nome Salesiano" class="home-logo">
-                <a href="#historia" class="home-cta-button">Conheça a nossa história</a>
-            </div>
-        </section>
-
-        <!-- História Section -->
-        <section id="historia" class="section historia-section">
+        <!-- História Section - Agora é a página inicial -->
+        <section id="historia" class="section historia-section active">
             <div class="container">
                 <img src="images/galeria/nome-salesiano-negrito.png" alt="Nome Salesiano" class="nome-salesiano-img">
                 <h2 id="onde-tudo-comecou">ONDE TUDO COMEÇOU</h2>
                 
-                <!-- Caixa de Pesquisa Flutuante -->
-                <div id="searchBox" class="search-box" style="display: block;">
-                    <div class="search-container">
-                        <input type="text" id="searchInput" placeholder="Pesquisar na história..." class="search-input">
-                        <button id="searchBtn" class="search-btn">🔍</button>
-                        <button id="closeSearchBtn" class="close-search-btn">✕</button>
-                    </div>
-                    <div id="searchResults" class="search-results">
-                        <span id="searchCounter" class="search-counter"></span>
-                        <button id="prevResult" class="nav-result-btn">↑</button>
-                        <button id="nextResult" class="nav-result-btn">↓</button>
+                <!-- Botão de Adicionar Imagem (visível apenas para admin) -->
+                <div class="admin-add-container" id="adminAddContainer" style="display: none;">
+                    <button class="add-image-btn" id="addImageBtn" onclick="openAddImageModal()">
+                        <span class="add-icon">+</span>
+                        <span class="add-text">Adicionar Imagem</span>
+                    </button>
+                </div>
+
+                <!-- Barra de Filtros Horizontal -->
+                <div class="filter-bar">
+                    <div class="filter-container">
+                        <div class="filter-item" data-filter="ginasio">
+                            <img src="images/tags/tag-ginasio.png" alt="Ginásio">
+                        </div>
+                        <div class="filter-item" data-filter="colegio">
+                            <img src="images/tags/tag-colegio.png" alt="Colégio">
+                        </div>
+                        <div class="filter-item" data-filter="patio">
+                            <img src="images/tags/tag-patio.png" alt="Pátio">
+                        </div>
+                        <div class="filter-item" data-filter="aquaviario">
+                            <img src="images/tags/tag-aquaviário.png" alt="Aquaviário">
+                        </div>
+                        <div class="filter-item" data-filter="shows">
+                            <img src="images/tags/tag-shows.png" alt="Shows">
+                        </div>
+                        <div class="filter-item" data-filter="terminal">
+                            <img src="images/tags/tag-terminal.png" alt="Terminal">
+                        </div>
+                        <div class="filter-item" data-filter="escola">
+                            <img src="images/tags/tag-escola.png" alt="Escola">
+                        </div>
+                        <div class="filter-item active" data-filter="all">
+                            <img src="images/tags/tag-todos.png" alt="Todos">
+                        </div>
                     </div>
                 </div>
+
                 <div class="timeline">
                     <!-- Primeiro evento da linha do tempo -->
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-keywords="colegio escola" data-category="colegio escola">
                         <div class="timeline-date">1943</div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
@@ -91,7 +105,7 @@
                     </div>
                     
                     <!-- Segundo evento da linha do tempo -->
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-keywords="colegio escola" data-category="colegio escola">
                         <div class="timeline-date">1951</div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
@@ -102,14 +116,14 @@
                                 </div>
                             </div>
                             <div class="timeline-text">
-                                <h3>11 de julho de 1951</h3>
-                                <p>A unidade do Forte São João, com vista para a Baía de Vitória, foi inaugurada com muito entusiasmo.</p>
+                                <h3>Vista aérea - 1951</h3>
+                                <p>Vista aérea do Colégio Salesiano em 1951, mostrando a estrutura inicial da instituição.</p>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Terceiro evento da linha do tempo -->
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-keywords="terminal" data-category="terminal">
                         <div class="timeline-date">1978</div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
@@ -127,202 +141,130 @@
                     </div>
                     
                     <!-- Quarto evento da linha do tempo -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">1981</div>
+                    <div class="timeline-item" data-keywords="ginasio shows" data-category="ginasio shows">
+                        <div class="timeline-date">1980</div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-image" onclick="openModal('modal4')">
-                                <img src="images/historia/du Henning-e-Rick Wakeman 1981.jpg" alt="Edu Henning e Rick Wakeman - 1981">
+                                <img src="images/historia/ginásio.jpg" alt="Ginásio Dom Bosco">
                                 <div class="timeline-overlay">
                                     <span>Clique para ampliar</span>
                                 </div>
                             </div>
                             <div class="timeline-text">
-                                <h3>Edu Henning e Rick Wakeman - 1981</h3>
-                                <p>Show do Ginásio Dom Bosco.</p>
+                                <h3>Ginásio Dom Bosco</h3>
+                                <p>O ginásio que recebeu grandes shows e eventos esportivos ao longo dos anos.</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Quinto evento da linha do tempo -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">1981</div>
+                    <div class="timeline-item" data-keywords="aquaviario" data-category="aquaviario">
+                        <div class="timeline-date">1985</div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-image" onclick="openModal('modal5')">
-                                <img src="images/historia/jogo-dombosco.png" alt="Harlem Globetrotters no ginásio Dom Bosco 1981">
+                                <img src="images/historia/aquaviário.jpg" alt="Aquaviário">
                                 <div class="timeline-overlay">
                                     <span>Clique para ampliar</span>
                                 </div>
                             </div>
                             <div class="timeline-text">
-                                <h3>Harlem Globetrotters - 1981</h3>
-                                <p>Harlem Globetrotters no ginásio Dom Bosco 1981.</p>
+                                <h3>Aquaviário</h3>
+                                <p>Vista do complexo aquaviário próximo ao colégio.</p>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Sexto evento da linha do tempo -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">1982</div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-image" onclick="openModal('modal6')">
-                                <img src="images/historia/ALCEU-VALENCA.png" alt="Show do cantor Alceu Valença no ginásio Dom Bosco em 1982">
-                                <div class="timeline-overlay">
-                                    <span>Clique para ampliar</span>
-                                </div>
-                            </div>
-                            <div class="timeline-text">
-                                <h3>Alceu Valença - 1982</h3>
-                                <p>Show do cantor Alceu Valença no ginásio Dom Bosco em 1982.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Sétimo evento da linha do tempo -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">1982</div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-image" onclick="openModal('modal7')">
-                                <img src="images/historia/NEY-MATOGROSSO.png" alt="Show do cantor Ney Matogrosso 1982">
-                                <div class="timeline-overlay">
-                                    <span>Clique para ampliar</span>
-                                </div>
-                            </div>
-                            <div class="timeline-text">
-                                <h3>Ney Matogrosso - 1982</h3>
-                                <p>Show do cantor Ney Matogrosso 1982.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Modais para as imagens -->
-            <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('modal1')">&times;</span>
-                    <div class="modal-nav prev-nav" onclick="navigateModal('modal1', 'prev')">
-                        <span>&lt;</span>
-                    </div>
-                    <div class="modal-nav next-nav" onclick="navigateModal('modal1', 'next')">
-                        <span>&gt;</span>
-                    </div>
-                    <img src="images/historia/historia-salesiano.png" alt="História Salesiana">
-                    <div class="modal-text">
-                        <h3>Fundação - 22 de julho de 1943</h3>
-                        <p>O Colégio Salesiano Nossa Senhora da Vitória foi a primeira unidade salesiana fundada na capital do Espírito Santo. Em 22 de julho de 1943, a escola acolheu seus primeiros alunos na sede no Centro da cidade e logo conquistou o coração dos capixabas com sua proposta pedagógica-pastoral.</p>
-                        <p>Os estudantes do Colégio Salesiano Nossa Senhora da Vitória contam com um projeto pedagógico de excelência em aprendizagem, destacando os valores humanos, a cidadania, o compromisso com o desenvolvimento sustentável e o respeito às diferenças.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="modal2" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('modal2')">&times;</span>
-                    <div class="modal-nav prev-nav" onclick="navigateModal('modal2', 'prev')">
-                        <span>&lt;</span>
-                    </div>
-                    <div class="modal-nav next-nav" onclick="navigateModal('modal2', 'next')">
-                        <span>&gt;</span>
-                    </div>
-                    <img src="images/historia/vista-cima-1951.png" alt="Vista aérea do Colégio Salesiano em 1951">
-                    <div class="modal-text">
-                        <h3>Vista aérea - 11 de julho de 1951</h3>
-                        <p>Esta imagem histórica mostra a vista aérea do Colégio Salesiano em 1951, capturando um momento importante na história da instituição e da cidade de Vitória.</p>
-                        <p>A unidade do Forte São João, com vista para a Baía de Vitória, foi inaugurada em 11 de julho de 1951, com muito entusiasmo, e há 80 anos vem acolhendo alunos do Ensino Fundamental ao Ensino Médio. Nomes expressivos na cultura, política, economia e educação capixaba tiveram formação salesiana.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="modal3" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('modal3')">&times;</span>
-                    <div class="modal-nav prev-nav" onclick="navigateModal('modal3', 'prev')">
-                        <span>&lt;</span>
-                    </div>
-                    <div class="modal-nav next-nav" onclick="navigateModal('modal3', 'next')">
-                        <span>&gt;</span>
-                    </div>
-                    <img src="images/historia/vista-de-cima-1978.png" alt="Terminal Rodoviário Dom Bosco - 1978">
-                    <div class="modal-text">
-                        <h3>Terminal Rodoviário Dom Bosco - 1978</h3>
-                        <p>Terminal de passageiros ao lado do Colégio Salesiano em Vitória.</p>
-                        <p>A Rua Dom Bosco era uma via utilizada como terminal intermunicipal de ônibus. No local, havia módulos de alvenaria com comércio ambulante. O espaço era perigoso e inseguro. Ele foi desativado em 2009 em função da construção dos terminais do Transcol de São Torquato, em Vila Velha, e Jardim América, em Cariacica, na Grande Vitória.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="modal4" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('modal4')">&times;</span>
-                    <div class="modal-nav prev-nav" onclick="navigateModal('modal4', 'prev')">
-                        <span>&lt;</span>
-                    </div>
-                    <div class="modal-nav next-nav" onclick="navigateModal('modal4', 'next')">
-                        <span>&gt;</span>
-                    </div>
-                    <img src="images/historia/du Henning-e-Rick Wakeman 1981.jpg" alt="Edu Henning e Rick Wakeman - 1981">
-                    <div class="modal-text">
-                        <h3>Edu Henning e Rick Wakeman - 1981</h3>
-                        <p>Show do Ginásio Dom Bosco.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="modal5" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('modal5')">&times;</span>
-                    <div class="modal-nav prev-nav" onclick="navigateModal('modal5', 'prev')">
-                        <span>&lt;</span>
-                    </div>
-                    <div class="modal-nav next-nav" onclick="navigateModal('modal5', 'next')">
-                        <span>&gt;</span>
-                    </div>
-                    <img src="images/historia/jogo-dombosco.png" alt="Harlem Globetrotters no ginásio Dom Bosco 1981">
-                    <div class="modal-text">
-                        <h3>Harlem Globetrotters - 1981</h3>
-                        <p>Harlem Globetrotters no ginásio Dom Bosco 1981.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="modal6" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('modal6')">&times;</span>
-                    <div class="modal-nav prev-nav" onclick="navigateModal('modal6', 'prev')">
-                        <span>&lt;</span>
-                    </div>
-                    <div class="modal-nav next-nav" onclick="navigateModal('modal6', 'next')">
-                        <span>&gt;</span>
-                    </div>
-                    <img src="images/historia/ALCEU-VALENCA.png" alt="Show do cantor Alceu Valença no ginásio Dom Bosco em 1982">
-                    <div class="modal-text">
-                        <h3>Alceu Valença - 1982</h3>
-                        <p>Show do cantor Alceu Valença no ginásio Dom Bosco em 1982.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="modal7" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('modal7')">&times;</span>
-                    <div class="modal-nav prev-nav" onclick="navigateModal('modal7', 'prev')">
-                        <span>&lt;</span>
-                    </div>
-                    <div class="modal-nav next-nav" onclick="navigateModal('modal7', 'next')">
-                        <span>&gt;</span>
-                    </div>
-                    <img src="images/historia/NEY-MATOGROSSO.png" alt="Show do cantor Ney Matogrosso 1982">
-                    <div class="modal-text">
-                        <h3>Ney Matogrosso - 1982</h3>
-                        <p>Show do cantor Ney Matogrosso 1982.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Modais das imagens da linha do tempo -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal1', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal1', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/historia-salesiano.png" alt="História Salesiana">
+                <div class="modal-text">
+                    <h3>22 de julho de 1943</h3>
+                    <p>O Colégio Salesiano Nossa Senhora da Vitória foi a primeira unidade salesiana fundada na capital do Espírito Santo. A instituição nasceu com o objetivo de oferecer educação de qualidade baseada no sistema preventivo de Dom Bosco.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal2', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal2', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/vista-cima-1951.png" alt="Vista aérea do Colégio Salesiano em 1951">
+                <div class="modal-text">
+                    <h3>Vista aérea - 1951</h3>
+                    <p>Esta vista aérea de 1951 mostra a estrutura inicial do Colégio Salesiano, com seus primeiros edifícios e a organização espacial que marcaria o desenvolvimento da instituição ao longo das décadas seguintes.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal3', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal3', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/vista-de-cima-1978.png" alt="Terminal Rodoviário Dom Bosco - 1978">
+                <div class="modal-text">
+                    <h3>Terminal Rodoviário Dom Bosco - 1978</h3>
+                    <p>Terminal de passageiros ao lado do Colégio Salesiano em Vitória.</p>
+                    <p>A Rua Dom Bosco era uma via utilizada como terminal intermunicipal de ônibus. No local, havia módulos de alvenaria com comércio ambulante. O espaço era perigoso e inseguro. Ele foi desativado em 2009 em função da construção dos terminais do Transcol de São Torquato e Jardim América.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal4')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal4', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal4', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/ginásio.jpg" alt="Ginásio Dom Bosco">
+                <div class="modal-text">
+                    <h3>Ginásio Dom Bosco</h3>
+                    <p>O ginásio do Colégio Salesiano foi palco de importantes eventos esportivos e culturais, incluindo shows de grandes artistas nacionais e competições esportivas que marcaram a história da instituição.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal5')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal5', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal5', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/aquaviário.jpg" alt="Aquaviário">
+                <div class="modal-text">
+                    <h3>Aquaviário</h3>
+                    <p>Vista do complexo aquaviário próximo ao colégio, mostrando a integração da instituição com o desenvolvimento urbano da região.</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Seção Mural -->
         <section id="mural" class="section">
@@ -331,82 +273,29 @@
                 <div class="content">
                     <div class="mural-content">
                         <h3>Contribua para Nossa História</h3>
-                        <p>Clique no botão abaixo para acessar nosso mural participativo e compartilhar suas experiências, fotos e memórias do Colégio Salesiano.</p>
-                        <button class="mural-btn" onclick="openMuralModal()">Acessar Mural Participativo</button>
+                        <p>Compartilhe suas experiências, fotos e memórias do Colégio Salesiano diretamente no nosso mural colaborativo.</p>
+                        
+                        <!-- Pré-visualização do Padlet (clicável) -->
+                        <div class="padlet-preview" onclick="openMuralModal()" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4;margin-top:20px;cursor:pointer;transition:transform 0.3s ease, box-shadow 0.3s ease;">
+                            <p style="padding:0;margin:0">
+                                <iframe src="https://padlet.com/padlets/7n44571iqd8ry903/embeds/preview_embed" frameborder="0" style="width:100%;height:300px;display:block;padding:0;margin:0;pointer-events:none"></iframe>
+                            </p>
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin:0;height:40px;padding:0 15px;background:rgba(0,0,0,0.05);">
+                                <span style="font-size:14px;color:#666;font-weight:500;">Clique para abrir o mural completo</span>
+                                <div style="display:flex;align-items:center;">
+                                    <img src="https://padlet.net/embeds/made_with_padlet_2022.png" width="114" height="28" style="padding:0;margin:0;background:0 0;border:none;box-shadow:none" alt="Criado com o Padlet">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Quem Somos -->
-
-
         <!-- Seção Tour Virtual -->
         <section id="tour-virtual" class="section">
             <div class="container">
                 <h2>Tour Virtual</h2>
-                
-                <!-- Autenticação Administrador -->
-                <div class="admin-auth">
-                    <div class="auth-form">
-                        <input type="password" id="adminPassword" placeholder="Digite a senha de administrador" class="admin-password-input">
-                        <button type="button" onclick="authenticateAdmin()" class="btn-auth">Acessar Modo Admin</button>
-                    </div>
-                    <div class="admin-status" id="adminStatus" style="display: none;">
-                        <span class="status-text">✅ Modo Administrador Ativo</span>
-                        <button type="button" onclick="logoutAdmin()" class="btn-logout">Sair</button>
-                    </div>
-                </div>
-
-                <!-- Painel Administrativo -->
-                <div id="adminPanel" class="admin-panel" style="display: none;">
-                    <div class="admin-header">
-                        <h3>🔧 Painel Administrativo</h3>
-                        <p>Gerencie os pontos do tour virtual</p>
-                    </div>
-                    
-                    <div class="admin-form-container">
-                        <form id="addPointForm" class="admin-form">
-                            <div class="form-group">
-                                <label for="pointName">Nome do Ponto:</label>
-                                <input type="text" id="pointName" name="pointName" required placeholder="Ex: Biblioteca Central">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="pointDescription">Descrição:</label>
-                                <textarea id="pointDescription" name="pointDescription" rows="3" placeholder="Descrição do local..."></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="panoramaImage">Imagem Panorâmica 360°:</label>
-                                <input type="file" id="panoramaImage" name="panoramaImage" accept="image/*" required>
-                                <small>Formatos aceitos: JPG, PNG (recomendado: proporção 2:1)</small>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="positionX">Posição X (%):</label>
-                                <input type="number" id="positionX" name="positionX" min="0" max="100" value="50" step="0.1">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="positionY">Posição Y (%):</label>
-                                <input type="number" id="positionY" name="positionY" min="0" max="100" value="50" step="0.1">
-                            </div>
-                            
-                            <div class="form-actions">
-                                <button type="submit" class="btn-primary">➕ Adicionar Ponto</button>
-                                <button type="button" class="btn-secondary" onclick="previewPoint()">👁️ Visualizar</button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <div class="admin-points-list">
-                        <h4>Pontos Existentes:</h4>
-                        <div id="pointsList" class="points-container">
-                            <!-- Pontos serão listados aqui dinamicamente -->
-                        </div>
-                    </div>
-                </div>
 
                 <div class="tour-description">
                     <p>Explore nosso campus através de um tour virtual interativo.</p>
@@ -416,14 +305,15 @@
                     <div class="tour-map-container">
                         <img src="images/tour virtual/unisales-mapview.png" alt="Mapa do Campus" class="tour-map-img">
                         
-                        <!-- Ponto padrão existente -->
-                        <svg class="location-icon location-pin" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="top: 48%; left: 52%;">
-                            <path d="M24 4C16.26 4 10 10.26 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.74-6.26-14-14-14z" fill="#FF4444" stroke="#FFFFFF" stroke-width="3"/>
+                        <!-- Ponto do Experimenta -->
+                        <svg class="location-icon location-pin experimenta-pin" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="top: 48%; left: 52%;" onclick="openExperimentaModal()">
+                            <path d="M24 4C16.26 4 10 10.26 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.74-6.26-14-14-14z" fill="#4CAF50" stroke="#FFFFFF" stroke-width="3"/>
                             <circle cx="24" cy="18" r="5" fill="#FFFFFF"/>
                         </svg>
                         
-                        <!-- Container para pontos dinâmicos -->
-                        <div id="dynamicPoints"></div>
+                        <div class="tour-label experimenta-label" style="top: 58%; left: 52%;">
+                            <span>Experimenta</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -450,11 +340,12 @@
         </div>
     </footer>
 
+
     <!-- Modal do Mural -->
     <div id="muralModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Mural Participativo - Colégio Salesiano</h2>
+                <h2>Mural Participativo</h2>
                 <span class="close" onclick="closeMuralModal()">&times;</span>
             </div>
             <div class="modal-body">
@@ -462,21 +353,121 @@
                     <div class="spinner"></div>
                     <p>Carregando mural...</p>
                 </div>
-                <iframe id="muralIframe" src="" frameborder="0" allowfullscreen></iframe>
+                <iframe id="muralIframe" src="" frameborder="0" allowfullscreen allow="camera;microphone;geolocation;display-capture;clipboard-write"></iframe>
             </div>
         </div>
     </div>
 
-    <!-- Modal do Tour Virtual 360° -->
-    <div id="panoramaModal" class="modal">
+    <!-- Modal do Experimenta -->
+    <div id="experimentaModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Tour Virtual 360°</h2>
-                <span class="close-modal">&times;</span>
+                <h2>Tour Virtual - Experimenta</h2>
+                <span class="close" onclick="closeExperimentaModal()">&times;</span>
             </div>
             <div class="modal-body">
-                <div id="panorama" class="panorama-viewer"></div>
+                <div class="loading" id="experimentaLoading">
+                    <div class="spinner"></div>
+                    <p>Carregando tour virtual...</p>
+                </div>
+                <iframe id="experimentaIframe" src="" frameborder="0" allowfullscreen></iframe>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login do Administrador -->
+    <div id="adminLoginModal" class="modal">
+        <div class="modal-content small">
+            <div class="modal-header">
+                <h2>Área do Administrador</h2>
+                <span class="close" onclick="closeAdminLoginModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p style="color: white;">Digite suas credenciais para acessar o painel:</p>
+                <div class="form-group">
+                    <label for="adminLoginUser" style="color: white;">Usuário:</label>
+                    <input type="text" id="adminLoginUser" class="admin-password-input" placeholder="Digite o usuário">
+                </div>
+                <div class="form-group">
+                    <label for="adminLoginPassword" style="color: white;">Senha:</label>
+                    <input type="password" id="adminLoginPassword" class="admin-password-input" placeholder="Digite a senha">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-primary" onclick="loginAdmin()">Entrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal para Adicionar Nova Imagem -->
+    <div id="addImageModal" class="modal">
+        <div class="modal-content small">
+            <span class="close" onclick="closeAddImageModal()">&times;</span>
+            <h2>Adicionar Nova Imagem</h2>
+            <form class="admin-form" onsubmit="addNewTimelineItem(event)">
+                <div class="form-group">
+                    <label for="newItemYear">Ano:</label>
+                    <input type="number" id="newItemYear" name="year" min="1900" max="2030" required>
+                </div>
+                <div class="form-group">
+                    <label for="newItemTags">Tags (separadas por vírgula):</label>
+                    <input type="text" id="newItemTags" name="tags" placeholder="ex: colegio, escola, historia" required>
+                </div>
+                <div class="form-group">
+                    <label for="newItemImage">Imagem:</label>
+                    <input type="file" id="newItemImage" name="image" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label for="newItemTitle">Título:</label>
+                    <input type="text" id="newItemTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="newItemDescription">Descrição:</label>
+                    <textarea id="newItemDescription" name="description" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Adicionar Imagem</button>
+                    <button type="button" class="btn-secondary" onclick="closeAddImageModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Editar Imagem Existente -->
+    <div id="editImageModal" class="modal">
+        <div class="modal-content small">
+            <span class="close" onclick="closeEditImageModal()">&times;</span>
+            <h2>Editar Imagem</h2>
+            <form class="admin-form" onsubmit="saveImageEdit(event)">
+                <input type="hidden" id="editItemId" name="itemId">
+                <div class="form-group">
+                    <label for="editItemYear">Ano:</label>
+                    <input type="number" id="editItemYear" name="year" min="1900" max="2030" required>
+                </div>
+                <div class="form-group">
+                    <label for="editItemTags">Tags (separadas por vírgula):</label>
+                    <input type="text" id="editItemTags" name="tags" placeholder="ex: colegio, escola, historia" required>
+                </div>
+                <div class="form-group">
+                    <label for="editItemTitle">Título:</label>
+                    <input type="text" id="editItemTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="editItemDescription">Descrição:</label>
+                    <textarea id="editItemDescription" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editItemImage">Nova Imagem (opcional):</label>
+                    <input type="file" id="editItemImage" name="image" accept="image/*">
+                    <small>Deixe em branco para manter a imagem atual</small>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Salvar Alterações</button>
+                    <button type="button" class="btn-secondary" onclick="closeEditImageModal()">Cancelar</button>
+                </div>
+            </form>
         </div>
     </div>
 

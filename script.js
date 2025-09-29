@@ -31,6 +31,161 @@ window.navigateModal = function(currentModalId, direction) {
     openModal(modals[nextIndex]);
 };
 
+// Sistema de Palavras-Chave
+window.filterByKeyword = function(keyword) {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const keywordButtons = document.querySelectorAll('.keyword-btn');
+    
+    // Verificar se os elementos existem antes de tentar acessá-los
+    if (!timelineItems.length || !keywordButtons.length) {
+        return;
+    }
+    
+    // Remover classe active de todos os botões
+    keywordButtons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    if (keyword === 'all') {
+        // Mostrar todos os itens
+        timelineItems.forEach(item => {
+            item.style.display = 'block';
+        });
+        const allButton = document.querySelector('.keyword-btn[onclick="filterByKeyword(\'all\')"]');
+        if (allButton) {
+            allButton.classList.add('active');
+        }
+    } else {
+        // Filtrar por palavra-chave
+        timelineItems.forEach(item => {
+            const keywords = item.getAttribute('data-keywords');
+            if (keywords && keywords.includes(keyword)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        const activeButton = document.querySelector(`.keyword-btn[onclick="filterByKeyword('${keyword}')"]`);
+        if (activeButton) {
+            activeButton.classList.add('active');
+        }
+    }
+};
+
+// Sistema de Filtros por Categoria
+window.filterByCategory = function(category) {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const filterItems = document.querySelectorAll('.filter-item');
+    
+    // Remover classe active de todos os filtros
+    filterItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    if (category === 'all') {
+        // Mostrar todos os itens
+        timelineItems.forEach(item => {
+            item.style.display = 'block';
+        });
+        // Adicionar classe active ao filtro "all"
+        const allFilter = document.querySelector('.filter-item[data-filter="all"]');
+        if (allFilter) {
+            allFilter.classList.add('active');
+        }
+    } else {
+        // Filtrar por categoria
+        timelineItems.forEach(item => {
+            const categories = item.getAttribute('data-category');
+            if (categories && categories.includes(category)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        // Adicionar classe active ao filtro selecionado
+        const activeFilter = document.querySelector(`.filter-item[data-filter="${category}"]`);
+        if (activeFilter) {
+            activeFilter.classList.add('active');
+        }
+    }
+};
+
+// Modal do Experimenta
+window.openExperimentaModal = function() {
+    const modal = document.getElementById('experimentaModal');
+    const iframe = document.getElementById('experimentaIframe');
+    const loading = document.getElementById('experimentaLoading');
+    
+    // Mostrar modal
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Mostrar loading
+    loading.style.display = 'flex';
+    
+    // Configurar iframe
+    iframe.src = 'https://meutour360.com/tour-360/experimenta';
+    
+    // Esconder loading após carregar
+    iframe.onload = function() {
+        loading.style.display = 'none';
+    };
+    
+    // Fallback para esconder loading após 5 segundos
+    setTimeout(() => {
+        loading.style.display = 'none';
+    }, 5000);
+};
+
+window.closeExperimentaModal = function() {
+    const modal = document.getElementById('experimentaModal');
+    const iframe = document.getElementById('experimentaIframe');
+    
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    
+    // Parar carregamento do iframe
+    iframe.src = 'about:blank';
+};
+
+// Funções do Modal do Mural
+window.openMuralModal = function() {
+    const modal = document.getElementById('muralModal');
+    const iframe = document.getElementById('muralIframe');
+    const loading = document.getElementById('muralLoading');
+    
+    // Mostrar modal
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Mostrar loading
+    loading.style.display = 'flex';
+    
+    // Configurar iframe com o Padlet completo
+    iframe.src = 'https://padlet.com/embed/7n44571iqd8ry903';
+    
+    // Esconder loading após carregar
+    iframe.onload = function() {
+        loading.style.display = 'none';
+    };
+    
+    // Fallback para esconder loading após 5 segundos
+    setTimeout(() => {
+        loading.style.display = 'none';
+    }, 5000);
+};
+
+window.closeMuralModal = function() {
+    const modal = document.getElementById('muralModal');
+    const iframe = document.getElementById('muralIframe');
+    
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    
+    // Parar carregamento do iframe
+    iframe.src = 'about:blank';
+};
+
 // Navegação entre seções
 document.addEventListener('DOMContentLoaded', function() {
     // Elementos do DOM
@@ -38,7 +193,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    const homeImage = document.querySelector('.home-image');
+    const navbar = document.querySelector('.navbar');
+
+    // Efeito de scroll na navbar
+    function handleNavbarScroll() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
+    // Event listener para o scroll
+    window.addEventListener('scroll', handleNavbarScroll);
 
     // Função para mostrar seção ativa
     function showSection(targetId) {
@@ -46,29 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
         sections.forEach(section => {
             section.classList.remove('active');
         });
-
-
-
-    // Fechar modal ao clicar fora do conteúdo (exceto modal panorâmico)
-    window.addEventListener('click', function(event) {
-        if (event.target.classList.contains('modal') && event.target.id !== 'panoramaModal') {
-            const modalId = event.target.id;
-            closeModal(modalId);
-        }
-    });
-    
-    // Fechar modal com tecla ESC (exceto modal panorâmico que tem controle próprio)
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            const modals = document.querySelectorAll('.modal:not(#panoramaModal)');
-            modals.forEach(modal => {
-                if (modal.style.display === 'block') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
-    });
 
         // Mostrar seção alvo
         const targetSection = document.getElementById(targetId);
@@ -88,854 +232,700 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-
-
-    // Funções da Modal do Mural
-    window.openMuralModal = function() {
-        const modal = document.getElementById('muralModal');
-        const iframe = document.getElementById('muralIframe');
-        const loading = document.getElementById('muralLoading');
-        
-        // Mostrar modal
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevenir scroll da página
-        
-        // Mostrar loading
-        loading.style.display = 'block';
-        iframe.style.display = 'none';
-        
-        // Carregar Padlet após um pequeno delay
-        setTimeout(() => {
-            iframe.src = 'https://padlet.com/diegoauerz/contribua-para-a-nossa-hist-ria-7n44571iqd8ry903';
-            
-            // Esconder loading após carregar
-            iframe.onload = function() {
-                loading.style.display = 'none';
-                iframe.style.display = 'block';
-            };
-        }, 500);
-    }
-
-    window.closeMuralModal = function() {
-        const modal = document.getElementById('muralModal');
-        const iframe = document.getElementById('muralIframe');
-        
-        // Esconder modal
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restaurar scroll da página
-        
-        // Limpar iframe para economizar recursos
-        iframe.src = '';
-    }
-
-    // Fechar modal ao clicar fora dela
-    window.onclick = function(event) {
-        const modal = document.getElementById('muralModal');
-        if (event.target === modal) {
-            closeMuralModal();
-        }
-    }
-
-    // Fechar modal com tecla ESC
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            const modal = document.getElementById('muralModal');
-            if (modal.style.display === 'block') {
-                closeMuralModal();
-            }
-        }
-    });
-
-    // Event listeners para os links de navegação
+    // Event listeners para navegação
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Obter o ID da seção alvo
             const targetId = this.getAttribute('href').substring(1);
-            
-            // Mostrar a seção
             showSection(targetId);
             
             // Fechar menu mobile se estiver aberto
-            if (navMenu.classList.contains('active')) {
-                toggleMobileMenu();
+            if (navMenu) {
+                navMenu.classList.remove('active');
             }
-            
-            // Scroll suave para o topo
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            if (hamburger) {
+                hamburger.classList.remove('active');
+            }
+        });
+    });
+
+    // Menu hambúrguer
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    }
+
+    // Mostrar seção História como padrão (página inicial)
+    showSection('historia');
+    
+    // Inicializar sistema de palavras-chave após um pequeno delay para garantir que os elementos estejam prontos
+    setTimeout(() => {
+        filterByKeyword('all');
+    }, 100);
+
+    // Inicializar sistema de filtros por categoria
+    setTimeout(() => {
+        // Adicionar event listeners aos filtros
+        const filterItems = document.querySelectorAll('.filter-item');
+        filterItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const category = this.getAttribute('data-filter');
+                filterByCategory(category);
             });
         });
-    });
+        
+        // Inicializar com todos os itens visíveis
+        filterByCategory('all');
+    }, 200);
 
-    // Event listener para todos os links internos (incluindo botões)
-    document.addEventListener('click', function(e) {
-        const link = e.target.closest('a[href^="#"]');
-        if (link) {
-            e.preventDefault();
+    // Fechar modal ao clicar fora do conteúdo
+    window.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal')) {
+            const modalId = event.target.id;
+            if (modalId === 'experimentaModal') {
+                closeExperimentaModal();
+            } else {
+                closeModal(modalId);
+            }
+        }
+    });
+    
+    // Fechar modal com tecla ESC
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const experimentaModal = document.getElementById('experimentaModal');
+            if (experimentaModal && experimentaModal.style.display === 'block') {
+                closeExperimentaModal();
+            }
             
-            // Obter o ID da seção alvo
-            const targetId = link.getAttribute('href').substring(1);
-            
-            // Mostrar a seção
-            showSection(targetId);
-            
-            // Scroll suave para o topo
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            const modals = document.querySelectorAll('.modal:not(#experimentaModal)');
+            modals.forEach(modal => {
+                if (modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
             });
         }
     });
 
-    // Função para toggle do menu mobile
-    function toggleMobileMenu() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    }
-
-    // Event listener para o hamburger menu
-    if (hamburger) {
-        hamburger.addEventListener('click', toggleMobileMenu);
-    }
-
-    // Fechar menu mobile ao clicar fora dele
-    document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-            if (navMenu.classList.contains('active')) {
-                toggleMobileMenu();
+    // Função para abrir depoimentos
+    window.openDepoimento = function(depoimentoId) {
+        const modal = document.getElementById('depoimentoModal');
+        const content = document.getElementById('depoimentoContent');
+        
+        // Conteúdo dos depoimentos
+        const depoimentos = {
+            1: {
+                nome: "Maria Silva",
+                cargo: "Ex-aluna (1985-1992)",
+                texto: "Minha experiência no Colégio Salesiano foi transformadora. Os valores que aprendi aqui me acompanham até hoje. A educação de qualidade e o ambiente acolhedor fizeram toda a diferença na minha formação."
+            },
+            2: {
+                nome: "João Santos",
+                cargo: "Ex-professor (1990-2010)",
+                texto: "Trabalhar no Colégio Salesiano foi um privilégio. Ver o crescimento dos alunos e participar da construção de uma educação baseada em valores salesianos foi uma experiência única e enriquecedora."
+            },
+            3: {
+                nome: "Ana Costa",
+                cargo: "Ex-aluna (1995-2002)",
+                texto: "O Colégio Salesiano não foi apenas uma escola, foi minha segunda casa. As amizades que fiz aqui duraram para toda a vida, e os ensinamentos dos educadores me tornaram uma pessoa melhor."
             }
-        }
-    });
-
-    // Fechar menu mobile ao redimensionar a tela
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-            toggleMobileMenu();
-        }
-    });
-
-    // Navegação por teclado (acessibilidade)
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-            toggleMobileMenu();
-        }
-    });
-
-    // Inicializar com a primeira seção ativa
-    showSection('home');
-
-    // Efeito de escurecimento gradativo na imagem HOME durante o scroll
-    function updateHomeImageDarkening() {
-        const homeSection = document.querySelector('.home-section');
-        if (!homeSection) return;
-        
-        const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const maxScroll = windowHeight * 0.8; // Escurece completamente após 80% da altura da tela
-        
-        // Calcula a intensidade do escurecimento baseada no scroll (de 0 para 0.6)
-        const scrollProgress = Math.min(scrollY / maxScroll, 1);
-        const darknessOpacity = scrollProgress * 0.6;
-        
-        // Aplica o escurecimento diretamente no pseudo-elemento
-        const overlay = homeSection.querySelector('::before') || homeSection;
-        homeSection.style.setProperty('--overlay-opacity', darknessOpacity);
-    }
-
-    // Event listener para o scroll
-    window.addEventListener('scroll', updateHomeImageDarkening);
-    
-    // Chama a função uma vez para definir o estado inicial
-    updateHomeImageDarkening();
-
-    // Animação suave para elementos quando entram na viewport
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observar elementos placeholder para animação
-    const placeholders = document.querySelectorAll('[class*="placeholder"]');
-    placeholders.forEach(placeholder => {
-        placeholder.style.opacity = '0';
-        placeholder.style.transform = 'translateY(20px)';
-        placeholder.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(placeholder);
-    });
-
-    // Função para destacar link ativo baseado no scroll (para uso futuro)
-    function highlightActiveLink() {
-        const scrollPosition = window.scrollY + 150;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-
-    // Adicionar efeito de loading suave
-    window.addEventListener('load', function() {
-        document.body.style.opacity = '1';
-    });
-
-    // Estilo inicial para loading
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.3s ease';
-
-    // Adicionar efeito de scroll na navbar
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        const scrollY = window.scrollY;
-        
-        // Efeito da navbar
-        if (scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-});
-
-// Função utilitária para debug (pode ser removida em produção)
-function debugNavigation() {
-    console.log('Seções ativas:', document.querySelectorAll('.section.active').length);
-    console.log('Links ativos:', document.querySelectorAll('.nav-link.active').length);
-}
-
-// Modal do Tour Virtual 360°
-let panoramaViewer = null;
-
-// Sistema de Administração do Tour Virtual
-let adminMode = false;
-let tourPoints = [];
-const ADMIN_PASSWORD = 'euamominhacama';
-
-// Carregar pontos salvos do localStorage
-function loadTourPoints() {
-    const saved = localStorage.getItem('tourPoints');
-    if (saved) {
-        tourPoints = JSON.parse(saved);
-        renderTourPoints();
-        updatePointsList();
-    }
-}
-
-// Salvar pontos no localStorage
-function saveTourPoints() {
-    localStorage.setItem('tourPoints', JSON.stringify(tourPoints));
-}
-
-// Autenticar administrador
-function authenticateAdmin() {
-    const passwordInput = document.getElementById('adminPassword');
-    const authForm = document.querySelector('.auth-form');
-    const adminStatus = document.getElementById('adminStatus');
-    const panel = document.getElementById('adminPanel');
-    
-    const enteredPassword = passwordInput.value.trim();
-    
-    if (enteredPassword === ADMIN_PASSWORD) {
-        adminMode = true;
-        
-        // Mostrar status de admin ativo
-        authForm.style.display = 'none';
-        adminStatus.style.display = 'flex';
-        
-        // Mostrar painel administrativo
-        if (panel) {
-            panel.style.display = 'block';
-        }
-        
-        // Carregar pontos
-        loadTourPoints();
-        
-        // Limpar campo de senha
-        passwordInput.value = '';
-        
-        showNotification('Acesso autorizado! Modo administrador ativado.', 'success');
-    } else {
-        showNotification('Senha incorreta. Acesso negado.', 'error');
-        passwordInput.value = '';
-        passwordInput.focus();
-    }
-}
-
-// Logout do administrador
-function logoutAdmin() {
-    const authForm = document.querySelector('.auth-form');
-    const adminStatus = document.getElementById('adminStatus');
-    const panel = document.getElementById('adminPanel');
-    
-    adminMode = false;
-    
-    // Mostrar formulário de login novamente
-    authForm.style.display = 'flex';
-    adminStatus.style.display = 'none';
-    
-    // Ocultar painel administrativo
-    if (panel) {
-        panel.style.display = 'none';
-    }
-    
-    showNotification('Modo administrador desativado.', 'info');
-}
-
-// Permitir login com Enter
-function handlePasswordKeyPress(event) {
-    if (event.key === 'Enter') {
-        authenticateAdmin();
-    }
-}
-
-// Renderizar pontos no mapa
-function renderTourPoints() {
-    const container = document.getElementById('dynamicPoints');
-    if (!container) return;
-    
-    container.innerHTML = '';
-    
-    tourPoints.forEach(point => {
-        const pointElement = document.createElement('div');
-        pointElement.className = 'dynamic-point';
-        pointElement.style.cssText = `
-            position: absolute;
-            top: ${point.positionY}%;
-            left: ${point.positionX}%;
-            transform: translate(-50%, -50%);
-        `;
-        
-        pointElement.innerHTML = `
-            <svg class="location-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="openCustomPanorama('${point.id}')">
-                <path d="M24 4C16.26 4 10 10.26 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.74-6.26-14-14-14z" fill="#4CAF50" stroke="#FFFFFF" stroke-width="3"/>
-                <circle cx="24" cy="18" r="5" fill="#FFFFFF"/>
-            </svg>
-        `;
-        
-        // Adicionar tooltip
-        pointElement.title = point.name;
-        
-        container.appendChild(pointElement);
-    });
-}
-
-// Abrir panorama customizado
-function openCustomPanorama(pointId) {
-    const point = tourPoints.find(p => p.id === pointId);
-    if (!point) return;
-    
-    const modal = document.getElementById('panoramaModal');
-    const modalTitle = modal.querySelector('.modal-header h2');
-    
-    modalTitle.textContent = point.name;
-    modal.style.display = 'block';
-    
-    // Inicializar panorama com imagem customizada
-    if (panoramaViewer) {
-        panoramaViewer.destroy();
-    }
-    
-    panoramaViewer = pannellum.viewer('panorama', {
-        "type": "equirectangular",
-        "panorama": point.image,
-        "autoLoad": true,
-        "title": point.name,
-        "author": "Centro Educacional Salesiano",
-        "compass": true,
-        "northOffset": 0,
-        "showZoomCtrl": true,
-        "mouseZoom": true,
-        "showFullscreenCtrl": true,
-        "autoRotate": -2
-    });
-}
-
-// Atualizar lista de pontos no painel admin
-function updatePointsList() {
-    const container = document.getElementById('pointsList');
-    if (!container) return;
-    
-    if (tourPoints.length === 0) {
-        container.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">Nenhum ponto adicionado ainda.</p>';
-        return;
-    }
-    
-    container.innerHTML = tourPoints.map(point => `
-        <div class="point-item">
-            <div class="point-info">
-                <h5>${point.name}</h5>
-                <p>${point.description || 'Sem descrição'}</p>
-                <small>Posição: ${point.positionX}%, ${point.positionY}%</small>
-            </div>
-            <div class="point-actions">
-                <button class="btn-edit" onclick="editPoint('${point.id}')">✏️ Editar</button>
-                <button class="btn-delete" onclick="deletePoint('${point.id}')">🗑️ Excluir</button>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Editar ponto
-function editPoint(pointId) {
-    const point = tourPoints.find(p => p.id === pointId);
-    if (!point) return;
-    
-    // Preencher formulário com dados do ponto
-    document.getElementById('pointName').value = point.name;
-    document.getElementById('pointDescription').value = point.description || '';
-    document.getElementById('positionX').value = point.positionX;
-    document.getElementById('positionY').value = point.positionY;
-    
-    // Remover ponto atual (será re-adicionado ao submeter)
-    deletePoint(pointId, false);
-    
-    showNotification('Ponto carregado para edição', 'info');
-}
-
-// Excluir ponto
-function deletePoint(pointId, showConfirm = true) {
-    if (showConfirm && !confirm('Tem certeza que deseja excluir este ponto?')) {
-        return;
-    }
-    
-    tourPoints = tourPoints.filter(p => p.id !== pointId);
-    saveTourPoints();
-    renderTourPoints();
-    updatePointsList();
-    
-    if (showConfirm) {
-        showNotification('Ponto excluído com sucesso!', 'success');
-    }
-}
-
-// Visualizar ponto antes de adicionar
-function previewPoint() {
-    const name = document.getElementById('pointName').value;
-    const x = document.getElementById('positionX').value;
-    const y = document.getElementById('positionY').value;
-    
-    if (!name || !x || !y) {
-        showNotification('Preencha nome e posições para visualizar', 'warning');
-        return;
-    }
-    
-    // Criar preview temporário
-    const container = document.getElementById('dynamicPoints');
-    const preview = document.createElement('div');
-    preview.className = 'dynamic-point';
-    preview.style.cssText = `
-        position: absolute;
-        top: ${y}%;
-        left: ${x}%;
-        transform: translate(-50%, -50%);
-        opacity: 0.7;
-        animation: pulse 1s infinite;
-    `;
-    
-    preview.innerHTML = `
-        <svg class="location-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 4C16.26 4 10 10.26 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.74-6.26-14-14-14z" fill="#FFC107" stroke="#FFFFFF" stroke-width="3"/>
-            <circle cx="24" cy="18" r="5" fill="#FFFFFF"/>
-        </svg>
-    `;
-    
-    container.appendChild(preview);
-    
-    // Remover preview após 3 segundos
-    setTimeout(() => {
-        if (preview.parentNode) {
-            preview.parentNode.removeChild(preview);
-        }
-    }, 3000);
-    
-    showNotification(`Preview: "${name}" em ${x}%, ${y}%`, 'info');
-}
-
-// Sistema de notificações
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-    
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        color: white;
-        font-weight: 600;
-        z-index: 10000;
-        animation: slideInRight 0.3s ease;
-    `;
-    
-    switch(type) {
-        case 'success':
-            notification.style.background = '#28a745';
-            break;
-        case 'warning':
-            notification.style.background = '#ffc107';
-            notification.style.color = '#333';
-            break;
-        case 'error':
-            notification.style.background = '#dc3545';
-            break;
-        default:
-            notification.style.background = '#007bff';
-    }
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.animation = 'slideOutRight 0.3s ease';
-            setTimeout(() => {
-                notification.parentNode.removeChild(notification);
-            }, 300);
-        }
-    }, 3000);
-}
-
-// Processar formulário de adição de ponto
-function addTourPoint(event) {
-    event.preventDefault();
-    
-    const name = document.getElementById('pointName').value.trim();
-    const description = document.getElementById('pointDescription').value.trim();
-    const imageFile = document.getElementById('panoramaImage').files[0];
-    const positionX = parseFloat(document.getElementById('positionX').value);
-    const positionY = parseFloat(document.getElementById('positionY').value);
-    
-    // Validações
-    if (!name) {
-        showNotification('Nome do ponto é obrigatório', 'error');
-        return;
-    }
-    
-    if (!imageFile) {
-        showNotification('Imagem panorâmica é obrigatória', 'error');
-        return;
-    }
-    
-    if (isNaN(positionX) || isNaN(positionY) || positionX < 0 || positionX > 100 || positionY < 0 || positionY > 100) {
-        showNotification('Posições devem ser números entre 0 e 100', 'error');
-        return;
-    }
-    
-    // Verificar se é uma imagem
-    if (!imageFile.type.startsWith('image/')) {
-        showNotification('Arquivo deve ser uma imagem', 'error');
-        return;
-    }
-    
-    // Converter imagem para base64
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const newPoint = {
-            id: Date.now().toString(),
-            name: name,
-            description: description,
-            image: e.target.result,
-            positionX: positionX,
-            positionY: positionY,
-            createdAt: new Date().toISOString()
         };
         
-        tourPoints.push(newPoint);
-        saveTourPoints();
-        renderTourPoints();
-        updatePointsList();
-        
-        // Limpar formulário
-        document.getElementById('addPointForm').reset();
-        
-        showNotification(`Ponto "${name}" adicionado com sucesso!`, 'success');
+        const depoimento = depoimentos[depoimentoId];
+        if (depoimento) {
+            content.innerHTML = `
+                <h3>${depoimento.nome}</h3>
+                <p class="cargo">${depoimento.cargo}</p>
+                <p class="texto">"${depoimento.texto}"</p>
+            `;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
     };
-    
-    reader.onerror = function() {
-        showNotification('Erro ao processar imagem', 'error');
+
+    window.closeDepoimentoModal = function() {
+        const modal = document.getElementById('depoimentoModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
     };
-    
-    reader.readAsDataURL(imageFile);
+});
+
+function debugNavigation() {
+    console.log('Seções encontradas:', document.querySelectorAll('.section').length);
+    console.log('Links de navegação:', document.querySelectorAll('.nav-link').length);
 }
 
-// Variáveis globais para pesquisa
-let searchResults = [];
-let currentSearchIndex = -1;
-let searchHighlights = [];
+// Fluxo de Login/Admin via botão da navbar
+let isAdminLoggedIn = false;
+const ADMIN_USER = 'unisales';
+const ADMIN_PASSWORD = 'salesiano1940';
 
-// Configurar caixa de pesquisa
-function setupSearchBox() {
-    const searchBox = document.getElementById('searchBox');
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-    const closeSearchBtn = document.getElementById('closeSearchBtn');
-    const searchCounter = document.getElementById('searchCounter');
-    const prevResult = document.getElementById('prevResult');
-    const nextResult = document.getElementById('nextResult');
-    const historiaSection = document.getElementById('historia');
-    
-    if (!searchBox || !searchInput || !historiaSection) return;
-    
-    // A caixa de pesquisa está sempre visível na seção HISTÓRIA
-    
-    // Função de busca
-    function performSearch(query) {
-        clearSearch();
-        
-        if (!query.trim()) {
-            updateSearchCounter();
-            return;
-        }
-        
-        const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-        const walker = document.createTreeWalker(
-            historiaSection,
-            NodeFilter.SHOW_TEXT,
-            {
-                acceptNode: function(node) {
-                    return node.parentElement.tagName !== 'SCRIPT' && 
-                           node.parentElement.tagName !== 'STYLE' &&
-                           node.textContent.trim().length > 0 ?
-                           NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-                }
-            }
-        );
-        
-        let textNode;
-        while (textNode = walker.nextNode()) {
-            const matches = [...textNode.textContent.matchAll(regex)];
-            if (matches.length > 0) {
-                highlightTextNode(textNode, matches, query);
-            }
-        }
-        
-        searchResults = document.querySelectorAll('.search-highlight');
-        currentSearchIndex = searchResults.length > 0 ? 0 : -1;
-        
-        if (currentSearchIndex >= 0) {
-            highlightCurrentResult();
-            scrollToResult(currentSearchIndex);
-        }
-        
-        updateSearchCounter();
-    }
-    
-    // Destacar texto encontrado
-    function highlightTextNode(textNode, matches, query) {
-        const parent = textNode.parentElement;
-        const text = textNode.textContent;
-        let lastIndex = 0;
-        const fragment = document.createDocumentFragment();
-        
-        matches.forEach(match => {
-            // Adicionar texto antes da correspondência
-            if (match.index > lastIndex) {
-                fragment.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
-            }
-            
-            // Criar elemento destacado
-            const highlight = document.createElement('span');
-            highlight.className = 'search-highlight';
-            highlight.textContent = match[0];
-            fragment.appendChild(highlight);
-            
-            lastIndex = match.index + match[0].length;
-        });
-        
-        // Adicionar texto restante
-        if (lastIndex < text.length) {
-            fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
-        }
-        
-        parent.replaceChild(fragment, textNode);
-    }
-    
-    // Limpar pesquisa anterior
-    function clearSearch() {
-        const highlights = historiaSection.querySelectorAll('.search-highlight');
-        highlights.forEach(highlight => {
-            const parent = highlight.parentElement;
-            parent.replaceChild(document.createTextNode(highlight.textContent), highlight);
-            parent.normalize();
-        });
-        
-        searchResults = [];
-        currentSearchIndex = -1;
-        searchInput.value = '';
-        updateSearchCounter();
-    }
-    
-    // Destacar resultado atual
-    function highlightCurrentResult() {
-        searchResults.forEach((result, index) => {
-            result.classList.toggle('current', index === currentSearchIndex);
-        });
-    }
-    
-    // Rolar para resultado
-    function scrollToResult(index) {
-        if (index >= 0 && index < searchResults.length) {
-            searchResults[index].scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-        }
-    }
-    
-    // Atualizar contador
-    function updateSearchCounter() {
-        if (searchResults.length > 0) {
-            searchCounter.textContent = `${currentSearchIndex + 1} de ${searchResults.length}`;
-            prevResult.disabled = currentSearchIndex <= 0;
-            nextResult.disabled = currentSearchIndex >= searchResults.length - 1;
-        } else {
-            searchCounter.textContent = searchInput.value.trim() ? 'Nenhum resultado' : '';
-            prevResult.disabled = true;
-            nextResult.disabled = true;
-        }
-    }
-    
-    // Event listeners
-    searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            const query = e.target.value.trim();
-            if (query) {
-                if (searchResults.length === 0) {
-                    // Primeira busca
-                    performSearch(query);
-                } else {
-                    // Navegar pelos resultados existentes
-                    currentSearchIndex = (currentSearchIndex + 1) % searchResults.length;
-                    highlightCurrentResult();
-                    scrollToResult(currentSearchIndex);
-                    updateSearchCounter();
-                }
-            }
-        } else if (e.key === 'Escape') {
-            clearSearch();
-        }
-    });
-    
-    searchBtn.addEventListener('click', () => {
-        performSearch(searchInput.value);
-    });
-    
-    closeSearchBtn.addEventListener('click', () => {
-        searchBox.style.display = 'none';
-        clearSearch();
-    });
-    
-    prevResult.addEventListener('click', () => {
-        if (currentSearchIndex > 0) {
-            currentSearchIndex--;
-            highlightCurrentResult();
-            scrollToResult(currentSearchIndex);
-            updateSearchCounter();
-        }
-    });
-    
-    nextResult.addEventListener('click', () => {
-        if (currentSearchIndex < searchResults.length - 1) {
-            currentSearchIndex++;
-            highlightCurrentResult();
-            scrollToResult(currentSearchIndex);
-            updateSearchCounter();
-        }
-    });
-}
-
-// Código removido - duplicação corrigida
-
-function openPanoramaModal() {
-    const modal = document.getElementById('panoramaModal');
+function openAdminLoginModal() {
+    const modal = document.getElementById('adminLoginModal');
     if (modal) {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
-        
-        // Inicializar Pannellum se ainda não foi inicializado
-        if (!panoramaViewer) {
-            initializePanorama();
-        }
+        const input = document.getElementById('adminLoginUser');
+        if (input) input.focus();
     }
 }
 
-function closePanoramaModal() {
-    const modal = document.getElementById('panoramaModal');
+function closeAdminLoginModal() {
+    const modal = document.getElementById('adminLoginModal');
     if (modal) {
         modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        const userInput = document.getElementById('adminLoginUser');
+        const passwordInput = document.getElementById('adminLoginPassword');
+        if (userInput) userInput.value = '';
+        if (passwordInput) passwordInput.value = '';
+    }
+}
+
+function loginAdmin() {
+    const user = document.getElementById('adminLoginUser')?.value || '';
+    const pwd = document.getElementById('adminLoginPassword')?.value || '';
+    
+    if (user === ADMIN_USER && pwd === ADMIN_PASSWORD) {
+        isAdminLoggedIn = true;
+        closeAdminLoginModal();
+        const panel = document.getElementById('adminPanelModal');
+        if (panel) {
+            panel.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        showNotification('Login realizado com sucesso!', 'success');
+    } else {
+        showNotification('Usuário ou senha incorretos. Tente novamente.', 'error');
+    }
+}
+
+function closeAdminPanel() {
+    const panel = document.getElementById('adminPanelModal');
+    if (panel) {
+        panel.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
 }
 
-function initializePanorama() {
-    panoramaViewer = pannellum.viewer('panorama', {
-        "type": "equirectangular",
-        "panorama": "images/galeria/panoramica.jpg",
-        "autoLoad": true,
-        "autoRotate": -2,
-        "compass": true,
-        "northOffset": 0,
-        "showZoomCtrl": true,
-        "showFullscreenCtrl": true,
-        "showControls": true,
-        "mouseZoom": true,
-        "draggable": true,
-        "keyboardZoom": true,
-        "hfov": 100,
-        "minHfov": 50,
-        "maxHfov": 120,
-        "pitch": 0,
-        "yaw": 0
-    });
+function addTimelineItem({ year, tag, imageSrc, title, description }) {
+    const timeline = document.querySelector('.timeline');
+    if (!timeline) return;
+
+    // ID único para o modal
+    const modalId = `modal-${Date.now()}`;
+
+    // Criar item da timeline
+    const item = document.createElement('div');
+    item.className = 'timeline-item';
+    item.setAttribute('data-keywords', tag);
+    item.setAttribute('data-category', tag);
+    item.innerHTML = `
+        <div class="timeline-date">${year}</div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-content">
+            <div class="timeline-image" onclick="openModal('${modalId}')">
+                <img src="${imageSrc}" alt="${title}">
+                <div class="timeline-overlay">
+                    <span>Clique para ampliar</span>
+                </div>
+            </div>
+            <div class="timeline-text">
+                <h3>${title}</h3>
+                <p>${description}</p>
+            </div>
+        </div>
+    `;
+
+    // Adicionar ao final (CSS já alterna esquerda/direita automaticamente)
+    timeline.appendChild(item);
+
+    // Criar modal correspondente
+    const modal = document.createElement('div');
+    modal.id = modalId;
+    modal.className = 'modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('${modalId}')">&times;</span>
+            <img src="${imageSrc}" alt="${title}">
+            <div class="modal-text">
+                <h3>${title}</h3>
+                <p>${description}</p>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
 }
 
-// Event listeners para o modal panorâmico
+function showNotification(message, type = 'info') {
+    // Remover notificação existente
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Criar nova notificação
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer; margin-left: 10px;">&times;</button>
+    `;
+    
+    // Estilos da notificação
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 300px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        animation: slideIn 0.3s ease-out;
+    `;
+    
+    // Cores baseadas no tipo
+    const colors = {
+        success: '#4CAF50',
+        error: '#f44336',
+        warning: '#ff9800',
+        info: '#2196F3'
+    };
+    
+    notification.style.backgroundColor = colors[type] || colors.info;
+    
+    // Adicionar ao body
+    document.body.appendChild(notification);
+    
+    // Remover automaticamente após 5 segundos
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 5000);
+}
+
+// Inicialização quando o DOM estiver carregado (suporte a admin e animações)
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar caixa de pesquisa
-    setupSearchBox();
-    
-    // Adicionar event listener ao ícone de localização
-    const locationIcon = document.querySelector('.location-icon');
-    if (locationIcon) {
-        locationIcon.addEventListener('click', openPanoramaModal);
+    // Botão do usuário na navbar
+    const adminBtn = document.getElementById('adminUserBtn');
+    if (adminBtn) {
+        adminBtn.addEventListener('click', openAdminLoginModal);
     }
-    
-    // Adicionar event listener ao botão de fechar
-    const closeBtn = document.querySelector('.close-modal');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closePanoramaModal);
+
+    // Submissão do formulário da timeline
+    const form = document.getElementById('timelineForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!isAdminLoggedIn) {
+                showNotification('Faça login para adicionar itens.', 'warning');
+                return;
+            }
+            const year = document.getElementById('timelineYear')?.value;
+            const tag = document.getElementById('timelineTag')?.value;
+            const title = document.getElementById('timelineTitle')?.value;
+            const description = document.getElementById('timelineDescription')?.value;
+            const fileInput = document.getElementById('timelineImage');
+            const file = fileInput?.files && fileInput.files[0];
+
+            if (!file) {
+                showNotification('Selecione uma imagem.', 'error');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                addTimelineItem({
+                    year,
+                    tag,
+                    imageSrc: ev.target.result,
+                    title,
+                    description
+                });
+                closeAdminPanel();
+                form.reset();
+                showNotification('Item adicionado à timeline!', 'success');
+            };
+            reader.readAsDataURL(file);
+        });
     }
-    
-    // Fechar modal com tecla ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const modal = document.getElementById('panoramaModal');
-            if (modal && modal.style.display === 'block') {
-                closePanoramaModal();
+
+    // Fechar modais admin com ESC e clique fora
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const adminLoginModal = document.getElementById('adminLoginModal');
+            const adminPanelModal = document.getElementById('adminPanelModal');
+            if (adminPanelModal && adminPanelModal.style.display === 'block') {
+                closeAdminPanel();
+            } else if (adminLoginModal && adminLoginModal.style.display === 'block') {
+                closeAdminLoginModal();
             }
         }
     });
+
+    window.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal')) {
+            if (event.target.id === 'adminLoginModal') {
+                closeAdminLoginModal();
+            } else if (event.target.id === 'adminPanelModal') {
+                closeAdminPanel();
+            }
+        }
+    });
+
+    // Animação de notificação
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Mostrar/ocultar botão do admin baseado no status de login
+    const adminUserBtn = document.getElementById('adminUserBtn');
+    if (adminUserBtn) {
+        adminUserBtn.style.display = isAdminLoggedIn ? 'block' : 'block'; // Sempre visível
+    }
+
+    // Mostrar/ocultar botão de adicionar imagem baseado no status de login
+    updateAdminUI();
+});
+
+// Variável global para controlar o próximo lado da timeline
+let nextTimelineSide = 'left'; // Começa com left para o primeiro item ser odd (esquerda)
+
+// Função para atualizar a UI do admin
+function updateAdminUI() {
+    const adminAddContainer = document.getElementById('adminAddContainer');
+    const timelineImages = document.querySelectorAll('.timeline-image');
+    
+    if (isAdminLoggedIn) {
+        // Mostrar botão de adicionar
+        if (adminAddContainer) {
+            adminAddContainer.style.display = 'block';
+        }
+        
+        // Adicionar classe editável às imagens
+        timelineImages.forEach((img, index) => {
+            img.classList.add('editable');
+            img.addEventListener('click', function(e) {
+                // Prevenir que o modal da imagem abra
+                e.stopPropagation();
+                openEditImageModal(index);
+            });
+        });
+    } else {
+        // Ocultar botão de adicionar
+        if (adminAddContainer) {
+            adminAddContainer.style.display = 'none';
+        }
+        
+        // Remover classe editável das imagens
+        timelineImages.forEach(img => {
+            img.classList.remove('editable');
+        });
+    }
+}
+
+// Função para abrir modal de adicionar imagem
+function openAddImageModal() {
+    const modal = document.getElementById('addImageModal');
+    if (modal) {
+        modal.style.display = 'block';
+    }
+}
+
+// Função para fechar modal de adicionar imagem
+function closeAddImageModal() {
+    const modal = document.getElementById('addImageModal');
+    if (modal) {
+        modal.style.display = 'none';
+        // Limpar formulário
+        const form = modal.querySelector('form');
+        if (form) {
+            form.reset();
+        }
+    }
+}
+
+// Função para abrir modal de editar imagem
+function openEditImageModal(itemIndex) {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const item = timelineItems[itemIndex];
+    
+    if (!item) return;
+    
+    const modal = document.getElementById('editImageModal');
+    if (!modal) return;
+    
+    // Extrair dados do item
+    const year = item.querySelector('.timeline-date').textContent;
+    const title = item.querySelector('.timeline-text h3').textContent;
+    const description = item.querySelector('.timeline-text p').textContent;
+    const categories = item.getAttribute('data-category') || '';
+    const keywords = item.getAttribute('data-keywords') || '';
+    
+    // Combinar categories e keywords para formar as tags
+    const allTags = [...new Set([...categories.split(' '), ...keywords.split(' ')])].filter(tag => tag.trim() !== '');
+    
+    // Preencher formulário
+    document.getElementById('editItemId').value = itemIndex;
+    document.getElementById('editItemYear').value = year;
+    document.getElementById('editItemTitle').value = title;
+    document.getElementById('editItemDescription').value = description;
+    document.getElementById('editItemTags').value = allTags.join(', ');
+    
+    modal.style.display = 'block';
+}
+
+// Função para fechar modal de editar imagem
+function closeEditImageModal() {
+    const modal = document.getElementById('editImageModal');
+    if (modal) {
+        modal.style.display = 'none';
+        // Limpar formulário
+        const form = modal.querySelector('form');
+        if (form) {
+            form.reset();
+        }
+    }
+}
+
+// Função para adicionar nova imagem à timeline
+function addNewTimelineItem(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const year = formData.get('year');
+    const tags = formData.get('tags').split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+    const title = formData.get('title');
+    const description = formData.get('description');
+    const imageFile = formData.get('image');
+    
+    if (!imageFile) {
+        showNotification('Por favor, selecione uma imagem.', 'error');
+        return;
+    }
+    
+    // Criar URL temporária para a imagem
+    const imageUrl = URL.createObjectURL(imageFile);
+    
+    // Determinar posição na timeline
+    const timeline = document.querySelector('.timeline');
+    const existingItems = timeline.querySelectorAll('.timeline-item');
+    const newIndex = existingItems.length;
+    
+    // Criar novo item da timeline
+    const newItem = document.createElement('div');
+    newItem.className = 'timeline-item';
+    newItem.setAttribute('data-keywords', tags.join(' '));
+    newItem.setAttribute('data-category', tags.join(' '));
+    
+    // Criar ID único para o modal
+    const modalId = `modal${Date.now()}`;
+    
+    newItem.innerHTML = `
+        <div class="timeline-date">${year}</div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-content">
+            <div class="timeline-image" onclick="openModal('${modalId}')">
+                <img src="${imageUrl}" alt="${title}">
+                <div class="timeline-overlay">
+                    <span>Clique para ampliar</span>
+                </div>
+            </div>
+            <div class="timeline-text">
+                <h3>${title}</h3>
+                <p>${description}</p>
+            </div>
+        </div>
+    `;
+    
+    // Adicionar à timeline
+    timeline.appendChild(newItem);
+    
+    // Criar modal para a nova imagem
+    createImageModal(modalId, imageUrl, title, description);
+    
+    // Fechar modal de adição
+    closeAddImageModal();
+    
+    // Atualizar UI do admin para incluir a nova imagem
+    updateAdminUI();
+    
+    // Aplicar alternância correta
+    applyTimelineAlternation();
+    
+    // Aplicar símbolos das tags ao novo item
+    createTagSymbols(newItem);
+    
+    showNotification('Imagem adicionada com sucesso!', 'success');
+}
+
+// Função para salvar edições de imagem
+function saveImageEdit(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const itemIndex = parseInt(formData.get('itemId'));
+    const year = formData.get('year');
+    const tags = formData.get('tags').split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+    const title = formData.get('title');
+    const description = formData.get('description');
+    const newImageFile = formData.get('image');
+    
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const item = timelineItems[itemIndex];
+    
+    if (!item) {
+        showNotification('Item não encontrado.', 'error');
+        return;
+    }
+    
+    // Atualizar dados do item
+    item.querySelector('.timeline-date').textContent = year;
+    item.querySelector('.timeline-text h3').textContent = title;
+    item.querySelector('.timeline-text p').textContent = description;
+    item.setAttribute('data-keywords', tags.join(' '));
+    item.setAttribute('data-category', tags.join(' '));
+    
+    // Atualizar imagem se uma nova foi fornecida
+    if (newImageFile && newImageFile.size > 0) {
+        const imageUrl = URL.createObjectURL(newImageFile);
+        const img = item.querySelector('.timeline-image img');
+        if (img) {
+            img.src = imageUrl;
+            img.alt = title;
+        }
+        
+        // Atualizar modal correspondente
+        const modalId = item.querySelector('.timeline-image').getAttribute('onclick').match(/'([^']+)'/)[1];
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            const modalImg = modal.querySelector('img');
+            const modalTitle = modal.querySelector('h3');
+            const modalDesc = modal.querySelector('p');
+            
+            if (modalImg) modalImg.src = imageUrl;
+            if (modalTitle) modalTitle.textContent = title;
+            if (modalDesc) modalDesc.textContent = description;
+        }
+    }
+    
+    // Recriar símbolos das tags
+    createTagSymbols(item);
+    
+    // Fechar modal de edição
+    closeEditImageModal();
+    
+    showNotification('Imagem atualizada com sucesso!', 'success');
+}
+
+// Função para aplicar alternância correta na timeline
+function applyTimelineAlternation() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach((item, index) => {
+        // Remover classes existentes
+        item.classList.remove('timeline-left', 'timeline-right');
+        
+        // Aplicar alternância: ímpar = esquerda, par = direita
+        if (index % 2 === 0) {
+            item.classList.add('timeline-left');
+        } else {
+            item.classList.add('timeline-right');
+        }
+    });
+}
+
+// Atualizar função de login para incluir UI do admin
+const originalLoginAdmin = loginAdmin;
+loginAdmin = function() {
+    const result = originalLoginAdmin();
+    if (isAdminLoggedIn) {
+        updateAdminUI();
+    }
+    return result;
+};
+
+// Função para criar modal de imagem dinamicamente
+function createImageModal(modalId, imageUrl, title, description) {
+    const modal = document.createElement('div');
+    modal.id = modalId;
+    modal.className = 'modal';
+    
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('${modalId}')">&times;</span>
+            <img src="${imageUrl}" alt="${title}">
+            <h3>${title}</h3>
+            <p>${description}</p>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+}
+
+// Aplicar alternância na inicialização
+// Função para criar símbolos das tags
+function createTagSymbols(item) {
+    const categories = item.getAttribute('data-category') || '';
+    const keywords = item.getAttribute('data-keywords') || '';
+    
+    // Combinar categories e keywords para formar as tags
+    const allTags = [...new Set([...categories.split(' '), ...keywords.split(' ')])].filter(tag => tag.trim() !== '');
+    
+    if (allTags.length === 0) return;
+    
+    // Remover tags existentes se houver
+    const existingTags = item.querySelector('.tag-text');
+    if (existingTags) {
+        existingTags.remove();
+    }
+    
+    // Criar container do texto das tags
+    const tagsContainer = document.createElement('div');
+    tagsContainer.className = 'tag-text';
+    
+    // Formatar as tags em maiúsculo e separadas por vírgula
+    const formattedTags = allTags.map(tag => tag.toUpperCase()).join(', ');
+    tagsContainer.textContent = `TAGS: ${formattedTags}`;
+    
+    // Adicionar as tags à imagem
+    const imageContainer = item.querySelector('.timeline-image');
+    if (imageContainer) {
+        imageContainer.style.position = 'relative';
+        imageContainer.appendChild(tagsContainer);
+    }
+}
+
+// Função para aplicar símbolos a todos os itens da timeline
+function applyTagSymbolsToAll() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        createTagSymbols(item);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    applyTimelineAlternation();
+    applyTagSymbolsToAll();
 });
