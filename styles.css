@@ -24,6 +24,13 @@
     --shadow: rgba(0, 0, 0, 0.1);
 }
 
+/* Mantém a barra de rolagem sempre reservada para a largura da página
+   não mudar entre os filtros (evita o card mudar de tamanho) */
+html {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
 body {
     font-family: 'Montserrat', sans-serif !important;
     line-height: 1.6;
@@ -332,20 +339,34 @@ main {
 
 /* História Content */
 
-#historia .nome-salesiano-img {
-    max-width: 80% !important;
-    width: auto !important;
-    height: auto !important;
-    max-height: 400px !important;
-    object-fit: contain !important;
-    margin-bottom: 2rem !important;
+#historia .nome-salesiano-texto {
+    font-family: 'Saira', 'Arial Black', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    font-size: clamp(2.5rem, 9vw, 6rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.02em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    color: #1565d8 !important;
+    /* Contorno branco ao redor das letras */
+    -webkit-text-stroke: 6px #ffffff !important;
+    paint-order: stroke fill !important;
+    /* Leve sombra escura para dar profundidade, como na imagem */
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25) !important;
+    margin: 0 auto 2rem auto !important;
     display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
     box-sizing: border-box !important;
 }
 
-#historia:not(.active) .nome-salesiano-img {
+@media (max-width: 600px) {
+    #historia .nome-salesiano-texto {
+        white-space: normal !important;
+    }
+}
+
+#historia:not(.active) .nome-salesiano-texto {
     display: none !important;
 }
 
@@ -493,6 +514,10 @@ main {
 
 .timeline-content {
     width: 45%;
+    height: 520px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 15px;
@@ -507,17 +532,13 @@ main {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
 .timeline-image {
     position: relative;
     cursor: pointer;
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 1rem;
+    flex: 0 0 auto;
 }
 
 .timeline-image img {
@@ -555,15 +576,34 @@ main {
     font-size: 1.1rem;
 }
 
+.timeline-text {
+    flex: 1 1 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
 .timeline-text h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #3498db;
+    flex: 0 0 auto;
+    /* Limita o título a no máximo 3 linhas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .timeline-text p {
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    /* Limita a descrição às linhas que couberem no card */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 /* Modal Styles para Timeline (História) */
@@ -1498,6 +1538,10 @@ footer p {
 
 .timeline-content {
     width: 45%;
+    height: 520px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 15px;
@@ -1512,17 +1556,13 @@ footer p {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
 .timeline-image {
     position: relative;
     cursor: pointer;
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 1rem;
+    flex: 0 0 auto;
 }
 
 .timeline-image img {
@@ -1560,15 +1600,34 @@ footer p {
     font-size: 1.1rem;
 }
 
+.timeline-text {
+    flex: 1 1 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
 .timeline-text h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #3498db;
+    flex: 0 0 auto;
+    /* Limita o título a no máximo 3 linhas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .timeline-text p {
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    /* Limita a descrição às linhas que couberem no card */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 /* Modal Styles para Timeline (História) */

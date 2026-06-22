@@ -17,7 +17,7 @@ window.closeModal = function(modalId) {
 
 // Função para navegar entre modais
 window.navigateModal = function(currentModalId, direction) {
-    const modals = ['modal1', 'modal2', 'modal3', 'modal4'];
+    const modals = ['modal1', 'modal6', 'modal7', 'modal8', 'modal2', 'modal9', 'modal10', 'modal11', 'modal3', 'modal4', 'modal5'];
     const currentIndex = modals.indexOf(currentModalId);
     
     let nextIndex;
@@ -49,7 +49,7 @@ window.filterByKeyword = function(keyword) {
     if (keyword === 'all') {
         // Mostrar todos os itens
         timelineItems.forEach(item => {
-            item.style.display = 'block';
+            item.style.display = 'flex';
         });
         const allButton = document.querySelector('.keyword-btn[onclick="filterByKeyword(\'all\')"]');
         if (allButton) {
@@ -60,7 +60,7 @@ window.filterByKeyword = function(keyword) {
         timelineItems.forEach(item => {
             const keywords = item.getAttribute('data-keywords');
             if (keywords && keywords.includes(keyword)) {
-                item.style.display = 'block';
+                item.style.display = 'flex';
             } else {
                 item.style.display = 'none';
             }
@@ -85,7 +85,7 @@ window.filterByCategory = function(category) {
     if (category === 'all') {
         // Mostrar todos os itens
         timelineItems.forEach(item => {
-            item.style.display = 'block';
+            item.style.display = 'flex';
         });
         // Adicionar classe active ao filtro "all"
         const allFilter = document.querySelector('.filter-item[data-filter="all"]');
@@ -97,7 +97,7 @@ window.filterByCategory = function(category) {
         timelineItems.forEach(item => {
             const categories = item.getAttribute('data-category');
             if (categories && categories.includes(category)) {
-                item.style.display = 'block';
+                item.style.display = 'flex';
             } else {
                 item.style.display = 'none';
             }

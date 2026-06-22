@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>História Salesiana</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-    <link rel="stylesheet" href="styles.css?v=13">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body class="historia">
     <header>
@@ -28,9 +31,6 @@
                         <a href="#depoimentos" class="nav-link">DEPOIMENTOS</a>
                     </li>
                 </ul>
-                <button class="nav-user-btn" id="adminUserBtn" title="Área do Administrador">
-                    <img src="images/galeria/usuário-simbolo.png" alt="Admin"/>
-                </button>
                 <div class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -44,7 +44,7 @@
         <!-- História Section - Agora é a página inicial -->
         <section id="historia" class="section historia-section active">
             <div class="container">
-                <img src="images/galeria/nome-salesiano-negrito.png" alt="Nome Salesiano" class="nome-salesiano-img">
+                <h1 class="nome-salesiano-texto">CAMPOS UNISALES</h1>
                 <h2 id="onde-tudo-comecou">ONDE TUDO COMEÇOU</h2>
                 
                 <!-- Botão de Adicionar Imagem (visível apenas para admin) -->
@@ -104,6 +104,60 @@
                         </div>
                     </div>
                     
+                    <!-- Fundação com a 1ª missa - 1948 -->
+                    <div class="timeline-item" data-keywords="colegio escola" data-category="colegio escola">
+                        <div class="timeline-date">1948</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal6')">
+                                <img src="images/historia/SEC-40/fundacao-1a-missa-1948.png" alt="Fundação com a 1ª missa do atual Colégio Salesiano - 1948">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Fundação - 1ª Missa - 1948</h3>
+                                <p>Fundação com a 1ª missa do atual Colégio Salesiano, em 1948.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1º prédio construído - 1950 -->
+                    <div class="timeline-item" data-keywords="colegio escola" data-category="colegio escola">
+                        <div class="timeline-date">1950</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal7')">
+                                <img src="images/historia/Sec-50/primeiro-predio-1950.png" alt="1º prédio construído para funcionar o Colégio Salesiano - 1950">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>1º Prédio do Colégio Salesiano - 1950</h3>
+                                <p>Primeiro prédio construído para funcionar o Colégio Salesiano, em 1950.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prédio do Colégio (anos 1950) -->
+                    <div class="timeline-item" data-keywords="colegio escola" data-category="colegio escola">
+                        <div class="timeline-date">1950</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal8')">
+                                <img src="images/historia/Sec-50/predio-colegio-anos-1950.png" alt="Prédio do Colégio Salesiano - anos 1950">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Prédio do Colégio Salesiano - Anos 1950</h3>
+                                <p>Vista do prédio do Colégio Salesiano junto à baía de Vitória, na década de 1950.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Segundo evento da linha do tempo -->
                     <div class="timeline-item" data-keywords="colegio escola" data-category="colegio escola">
                         <div class="timeline-date">1951</div>
@@ -121,7 +175,61 @@
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- Inauguração do Prédio Atual - 1951 -->
+                    <div class="timeline-item" data-keywords="colegio escola" data-category="colegio escola">
+                        <div class="timeline-date">1951</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal9')">
+                                <img src="images/historia/Sec-50/inauguracao-predio-atual-1951-a.png" alt="Inauguração do Prédio Atual - 1951">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Inauguração do Prédio Atual - 1951</h3>
+                                <p>Inauguração do prédio atual do Colégio Salesiano, em 1951.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inauguração do Prédio Atual (solenidade) - 1951 -->
+                    <div class="timeline-item" data-keywords="colegio escola" data-category="colegio escola">
+                        <div class="timeline-date">1951</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal10')">
+                                <img src="images/historia/Sec-50/inauguracao-predio-atual-1951-b.png" alt="Inauguração do Prédio Atual (solenidade) - 1951">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Inauguração do Prédio Atual - 1951</h3>
+                                <p>Solenidade de inauguração do prédio atual do Colégio Salesiano, com autoridades e convidados, em 1951.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formatura do 1º Grau - 1951 -->
+                    <div class="timeline-item" data-keywords="colegio escola" data-category="colegio escola">
+                        <div class="timeline-date">1951</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-image" onclick="openModal('modal11')">
+                                <img src="images/historia/Sec-50/formatura-1grau-1951.png" alt="Formatura do 1º Grau - 1951">
+                                <div class="timeline-overlay">
+                                    <span>Clique para ampliar</span>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <h3>Formatura do 1º Grau - 1951</h3>
+                                <p>Cerimônia de formatura do 1º grau no Colégio Salesiano, em 1951.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Terceiro evento da linha do tempo -->
                     <div class="timeline-item" data-keywords="terminal" data-category="terminal">
                         <div class="timeline-date">1978</div>
@@ -262,6 +370,108 @@
                 <div class="modal-text">
                     <h3>Aquaviário</h3>
                     <p>Vista do complexo aquaviário próximo ao colégio, mostrando a integração da instituição com o desenvolvimento urbano da região.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal6" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal6')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal6', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal6', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/SEC-40/fundacao-1a-missa-1948.png" alt="Fundação com a 1ª missa do atual Colégio Salesiano - 1948">
+                <div class="modal-text">
+                    <h3>Fundação - 1ª Missa - 1948</h3>
+                    <p>Registro da fundação com a 1ª missa do atual Colégio Salesiano, em 1948.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal7" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal7')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal7', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal7', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/Sec-50/primeiro-predio-1950.png" alt="1º prédio construído para funcionar o Colégio Salesiano - 1950">
+                <div class="modal-text">
+                    <h3>1º Prédio do Colégio Salesiano - 1950</h3>
+                    <p>Primeiro prédio construído para funcionar o Colégio Salesiano, em 1950.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal8" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal8')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal8', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal8', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/Sec-50/predio-colegio-anos-1950.png" alt="Prédio do Colégio Salesiano - anos 1950">
+                <div class="modal-text">
+                    <h3>Prédio do Colégio Salesiano - Anos 1950</h3>
+                    <p>Vista do prédio do Colégio Salesiano junto à baía de Vitória, na década de 1950.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal9" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal9')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal9', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal9', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/Sec-50/inauguracao-predio-atual-1951-a.png" alt="Inauguração do Prédio Atual - 1951">
+                <div class="modal-text">
+                    <h3>Inauguração do Prédio Atual - 1951</h3>
+                    <p>Inauguração do prédio atual do Colégio Salesiano, em 1951.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal10" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal10')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal10', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal10', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/Sec-50/inauguracao-predio-atual-1951-b.png" alt="Inauguração do Prédio Atual (solenidade) - 1951">
+                <div class="modal-text">
+                    <h3>Inauguração do Prédio Atual - 1951</h3>
+                    <p>Solenidade de inauguração do prédio atual do Colégio Salesiano, com autoridades e convidados, em 1951.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal11" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal11')">&times;</span>
+                <div class="modal-nav prev-nav" onclick="navigateModal('modal11', 'prev')">
+                    <span>&lt;</span>
+                </div>
+                <div class="modal-nav next-nav" onclick="navigateModal('modal11', 'next')">
+                    <span>&gt;</span>
+                </div>
+                <img src="images/historia/Sec-50/formatura-1grau-1951.png" alt="Formatura do 1º Grau - 1951">
+                <div class="modal-text">
+                    <h3>Formatura do 1º Grau - 1951</h3>
+                    <p>Cerimônia de formatura do 1º grau no Colégio Salesiano, em 1951.</p>
                 </div>
             </div>
         </div>
@@ -472,6 +682,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
