@@ -17,7 +17,7 @@ window.closeModal = function(modalId) {
 
 // Função para navegar entre modais
 window.navigateModal = function(currentModalId, direction) {
-    const modals = ['modal6', 'modal7', 'modal8', 'modal9', 'modal10', 'modal11'];
+    const modals = ['modal6', 'modal7', 'modal8', 'modal10', 'modal11'];
     const currentIndex = modals.indexOf(currentModalId);
     
     let nextIndex;

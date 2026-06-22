@@ -171,9 +171,6 @@
   {f:"feira-de-ciencias.jpeg",t:'Feira de Ciências - 1990',d:'Feira de Ciências no Colégio Salesiano, na década de 1990.',y:'1990',c:'colegio',folder:'SEC-90'},
   {f:"festa-do-folclore-anos80.jpeg",t:'Festa do Folclore - 1980',d:'Festa do Folclore no Colégio Salesiano, na década de 1980.',y:'1980',c:'shows',folder:'SEC-80'},
   {f:"festival-estudantil-de-musica-1976.jpeg",t:'Festival Estudantil de Música - 1976',d:'Festival Estudantil de Música no Colégio Salesiano, em 1976.',y:'1976',c:'shows',folder:'SEC-70'},
-  {f:"formatura-do-1-grau-1951-b.jpeg",t:'Formatura do 1º Grau (2) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
-  {f:"formatura-do-1-grau-1951-c.jpeg",t:'Formatura do 1º Grau (3) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
-  {f:"formatura-do-1-grau-1951-d.jpeg",t:'Formatura do 1º Grau (4) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
   {f:"formatura-do-1-grau-1951-e.jpeg",t:'Formatura do 1º Grau (5) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
   {f:"formatura-do-1-grau-1951-f.jpeg",t:'Formatura do 1º Grau (6) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
   {f:"formatura-do-1-grau-1951.jpeg",t:'Formatura do 1º Grau - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951.',y:'1951',c:'shows',folder:'Sec-50'},
@@ -238,15 +235,11 @@
   {f:"portico-para-ginastica-1952.jpeg",t:'Pórtico para Ginástica - 1952',d:'Pórtico para Ginástica no Colégio Salesiano, em 1952.',y:'1952',c:'ginasio',folder:'Sec-50'},
   {f:"premiacao-de-final-de-ano-1955-b.jpeg",t:'Premiação de Final de Ano (2) - 1955',d:'Premiação de Final de Ano no Colégio Salesiano, em 1955 (Outro registro.)',y:'1955',c:'shows',folder:'Sec-50'},
   {f:"premiacao-de-final-de-ano-1955.jpeg",t:'Premiação de Final de Ano - 1955',d:'Premiação de Final de Ano no Colégio Salesiano, em 1955.',y:'1955',c:'shows',folder:'Sec-50'},
-  {f:"primeiro-predio-colegio-salesiano-1950-b.jpeg",t:'Primeiro Prédio Colégio Salesiano (2) - 1950',d:'Primeiro Prédio Colégio Salesiano, em 1950 (Outro registro.)',y:'1950',c:'colegio',folder:'Sec-50'},
-  {f:"primeiro-predio-colegio-salesiano-1950-c.jpeg",t:'Primeiro Prédio Colégio Salesiano (3) - 1950',d:'Primeiro Prédio Colégio Salesiano, em 1950 (Outro registro.)',y:'1950',c:'colegio',folder:'Sec-50'},
-  {f:"primeiro-predio-colegio-salesiano-1950.jpeg",t:'Primeiro Prédio Colégio Salesiano - 1950',d:'Primeiro Prédio Colégio Salesiano, em 1950.',y:'1950',c:'colegio',folder:'Sec-50'},
   {f:"quadra-domingos-savio-1970-b.jpeg",t:'Quadra Domingos Sávio (2) - 1970',d:'Quadra Domingos Sávio no Colégio Salesiano, em 1970 (Outro registro.)',y:'1970',c:'ginasio',folder:'SEC-70'},
   {f:"quadra-domingos-savio-1970.jpeg",t:'Quadra Domingos Sávio - 1970',d:'Quadra Domingos Sávio no Colégio Salesiano, em 1970.',y:'1970',c:'ginasio',folder:'SEC-70'},
   {f:"sala-de-aula-1981.jpeg",t:'Sala de Aula - 1981',d:'Sala de Aula no Colégio Salesiano, em 1981.',y:'1981',c:'colegio',folder:'SEC-80'},
   {f:"torneio-mirim-1973-b.jpeg",t:'Torneio Mirim (2) - 1973',d:'Torneio Mirim no Colégio Salesiano, em 1973 (Outro registro.)',y:'1973',c:'ginasio',folder:'SEC-70'},
   {f:"torneio-mirim-1973.jpeg",t:'Torneio Mirim - 1973',d:'Torneio Mirim no Colégio Salesiano, em 1973.',y:'1973',c:'ginasio',folder:'SEC-70'},
-  {f:"vista-antiga-do-colegio-salesiano-anos50.jpeg",t:'Vista Antiga do Colégio Salesiano - 1950',d:'Vista Antiga do Colégio Salesiano, na década de 1950.',y:'1950',c:'colegio',folder:'Sec-50'},
   ];
 
 
