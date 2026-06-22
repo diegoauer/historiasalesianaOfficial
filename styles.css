@@ -363,6 +363,11 @@ main {
 @media (max-width: 600px) {
     #historia .nome-salesiano-texto {
         white-space: normal !important;
+        font-size: clamp(1.5rem, 7vw, 2.4rem) !important;
+        -webkit-text-stroke: 3px #ffffff !important;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25) !important;
+        margin-bottom: 1.2rem !important;
+        word-break: break-word !important;
     }
 }
 
@@ -1733,33 +1738,95 @@ footer p {
 
 /* Responsive Timeline */
 @media (max-width: 768px) {
-    .timeline::before {
-        left: 30px;
+    .container {
+        padding: 0 1rem;
     }
-    
+
+    .historia-section .container {
+        padding-top: 2rem;
+        gap: 18px;
+    }
+
+    .historia-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
     .timeline-item {
         flex-direction: row !important;
-        padding-left: 70px;
+        padding-left: 48px;
+        margin-bottom: 2.5rem;
     }
-    
+
     .timeline-date {
-        left: 30px;
+        left: 20px;
         transform: translateX(-50%);
+        font-size: 0.9rem;
+        padding: 0.35rem 0.7rem;
     }
-    
+
     .timeline-connector {
-        left: 30px;
+        left: 20px;
     }
-    
+
     .timeline-content {
         width: 100%;
         margin-left: 0;
+        height: auto;
+        padding: 1.1rem;
     }
-    
+
+    .timeline-image {
+        margin-bottom: 0.8rem;
+    }
+
+    .timeline-image img {
+        height: 170px;
+    }
+
+    .timeline-text h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+        -webkit-line-clamp: 4;
+    }
+
+    .timeline-text p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        -webkit-line-clamp: 6;
+    }
+
     .modal-content {
         width: 98%;
         margin: 2% auto;
         padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-item {
+        padding-left: 42px;
+        margin-bottom: 2rem;
+    }
+
+    .timeline-content {
+        padding: 0.9rem;
+    }
+
+    .timeline-image img {
+        height: 150px;
+    }
+
+    .timeline-text h3 {
+        font-size: 1.05rem;
+    }
+
+    .timeline-text p {
+        font-size: 0.9rem;
     }
 }
 
