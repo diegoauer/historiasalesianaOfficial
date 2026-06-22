@@ -72,7 +72,7 @@
   {f:"SALESINHO-EVENTO-CAPOEIRA-90.jpg",t:'Evento de Capoeira do Salesinho - 1990',d:'Evento de capoeira do Salesinho, no Colégio Salesiano, em 1990.',y:'1990',c:'shows'},
   {f:"DIA DAS CRIANÇAS-PÁTIO-91.jpg",t:'Dia das Crianças no Pátio - 1991',d:'Comemoração do Dia das Crianças no pátio do Colégio Salesiano, em 1991.',y:'1991',c:'patio'},
   {f:"PÁTIO-91.jpg",t:'Pátio - 1991',d:'Pátio do Colégio Salesiano, em 1991.',y:'1991',c:'patio'},
-  {f:"PORTARIA-AV.VITÓRIA-MAI-92.jpg",t:'Portaria da Avenida Vitória - 1992',d:'Portaria da Avenida Vitória, no Colégio Salesiano, em maio de 1992.',y:'1992',c:'colegio'},
+  {f:"PORTARIA-AV.VITÓRIA-MAI-92.jpg",t:'Portaria da Avenida Vitória (maio) - 1992',d:'Portaria da Avenida Vitória, no Colégio Salesiano, em maio de 1992.',y:'1992',c:'colegio'},
   {f:"ÁREA INTERNA-92.jpg",t:'Área Interna - 1992',d:'Área interna do Colégio Salesiano, em 1992.',y:'1992',c:'colegio'},
   {f:"FESTA DO FOLCLORE-92.jpg",t:'Festa do Folclore - 1992',d:'Festa do Folclore no Colégio Salesiano, em 1992.',y:'1992',c:'shows'},
   {f:"JOGOS-GINÁSIO-1992.jpg",t:'Jogos no Ginásio - 1992',d:'Jogos no ginásio do Colégio Salesiano, em 1992.',y:'1992',c:'ginasio'},
@@ -296,6 +296,7 @@
     var all = SEC70.concat(SEC90).concat(SADAS);
     all.sort(function (a, b) { return (parseInt(a.y, 10) || 0) - (parseInt(b.y, 10) || 0); });
     renderList(timeline, all, null);
+    if (typeof sortTimelineChronologically === 'function') sortTimelineChronologically();
     if (typeof applyTimelineAlternation === 'function') applyTimelineAlternation();
   });
 

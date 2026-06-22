@@ -440,8 +440,10 @@ function addTimelineItem({ year, tag, imageSrc, title, description }) {
         </div>
     `;
 
-    // Adicionar ao final (CSS já alterna esquerda/direita automaticamente)
+    // Inserir e reordenar cronologicamente.
     timeline.appendChild(item);
+    sortTimelineChronologically();
+    applyTimelineAlternation();
 
     // Criar modal correspondente
     const modal = document.createElement('div');
@@ -759,8 +761,9 @@ function addNewTimelineItem(event) {
         </div>
     `;
     
-    // Adicionar à timeline
+    // Adicionar à timeline e manter a ordem cronológica crescente
     timeline.appendChild(newItem);
+    sortTimelineChronologically();
     
     // Criar modal para a nova imagem
     createImageModal(modalId, imageUrl, title, description);
@@ -838,6 +841,22 @@ function saveImageEdit(event) {
     
     showNotification('Imagem atualizada com sucesso!', 'success');
 }
+
+// Mantém a linha do tempo em ordem cronológica crescente, inclusive para itens
+// carregados depois do HTML inicial ou adicionados pelo painel administrativo.
+window.sortTimelineChronologically = function() {
+    const timeline = document.querySelector('#historia .timeline');
+    if (!timeline) return;
+
+    const getYear = (item) => {
+        const year = Number.parseInt(item.querySelector('.timeline-date')?.textContent, 10);
+        return Number.isFinite(year) ? year : Number.POSITIVE_INFINITY;
+    };
+
+    const items = Array.from(timeline.children).filter(item => item.classList.contains('timeline-item'));
+    items.sort((a, b) => getYear(a) - getYear(b));
+    items.forEach(item => timeline.appendChild(item));
+};
 
 // Função para aplicar alternância correta na timeline
 function applyTimelineAlternation() {
@@ -926,6 +945,7 @@ function applyTagSymbolsToAll() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    sortTimelineChronologically();
     applyTimelineAlternation();
     applyTagSymbolsToAll();
 });
