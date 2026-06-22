@@ -112,6 +112,144 @@
   {f:"SALESINHO-INTERNO.jpg",t:'Área Interna do Salesinho',d:'Área interna do Salesinho, no Colégio Salesiano, na década de 1990.',y:'1990',c:'shows'}
   ];
 
+  const SADAS = [
+  {f:"abertura-dos-jogos-de-integracao-1988-b.jpeg",t:'Abertura dos Jogos de Integração (2) - 1988',d:'Abertura dos Jogos de Integração no Colégio Salesiano, em 1988 (Outro registro.)',y:'1988',c:'ginasio',folder:'SEC-80'},
+  {f:"abertura-dos-jogos-de-integracao-1988-c.jpeg",t:'Abertura dos Jogos de Integração (3) - 1988',d:'Abertura dos Jogos de Integração no Colégio Salesiano, em 1988 (Outro registro.)',y:'1988',c:'ginasio',folder:'SEC-80'},
+  {f:"abertura-dos-jogos-de-integracao-1988.jpeg",t:'Abertura dos Jogos de Integração - 1988',d:'Abertura dos Jogos de Integração no Colégio Salesiano, em 1988.',y:'1988',c:'ginasio',folder:'SEC-80'},
+  {f:"alunos-com-trofeus-1988.jpeg",t:'Alunos com Troféus - 1988',d:'Alunos com Troféus no Colégio Salesiano, em 1988.',y:'1988',c:'ginasio',folder:'SEC-80'},
+  {f:"alunos-em-trabalho-de-grupo-anos90.jpeg",t:'Alunos em Trabalho de Grupo - 1990',d:'Alunos em Trabalho de Grupo no Colégio Salesiano, na década de 1990.',y:'1990',c:'escola',folder:'SEC-90'},
+  {f:"alunos-no-patio-1981.jpeg",t:'Alunos no Pátio - 1981',d:'Alunos no Pátio no Colégio Salesiano, em 1981.',y:'1981',c:'patio',folder:'SEC-80'},
+  {f:"alunos-no-patio-anos80.jpeg",t:'Alunos no Pátio - 1980',d:'Alunos no Pátio no Colégio Salesiano, na década de 1980.',y:'1980',c:'patio',folder:'SEC-80'},
+  {f:"apresentacao-de-danca-anos90.jpeg",t:'Apresentação de Dança - 1990',d:'Apresentação de Dança no Colégio Salesiano, na década de 1990.',y:'1990',c:'shows',folder:'SEC-90'},
+  {f:"apresentacao-dos-globetrotters-ginasio-dom-bosco-1981.jpeg",t:'Apresentação dos Globetrotters Ginásio Dom Bosco - 1981',d:'Apresentação dos Globetrotters Ginásio Dom Bosco no Colégio Salesiano, em 1981.',y:'1981',c:'ginasio',folder:'SEC-80'},
+  {f:"apresentacao-teatral-1964-b.jpeg",t:'Apresentação Teatral (2) - 1964',d:'Apresentação Teatral no Colégio Salesiano, em 1964 (Outro registro.)',y:'1964',c:'shows',folder:'SEC-60'},
+  {f:"apresentacao-teatral-1964-c.jpeg",t:'Apresentação Teatral (3) - 1964',d:'Apresentação Teatral no Colégio Salesiano, em 1964 (Outro registro.)',y:'1964',c:'shows',folder:'SEC-60'},
+  {f:"apresentacao-teatral-1964.jpeg",t:'Apresentação Teatral - 1964',d:'Apresentação Teatral no Colégio Salesiano, em 1964.',y:'1964',c:'shows',folder:'SEC-60'},
+  {f:"aula-de-laboratorio-salesiano.jpeg",t:'Aula de Laboratório Salesiano - 1990',d:'Aula de Laboratório Salesiano no Colégio Salesiano, na década de 1990.',y:'1990',c:'colegio',folder:'SEC-90'},
+  {f:"aula-pratica-laboratorio-1966-b.jpeg",t:'Aula Prática Laboratório (2) - 1966',d:'Aula Prática Laboratório no Colégio Salesiano, em 1966 (Outro registro.)',y:'1966',c:'colegio',folder:'SEC-60'},
+  {f:"aula-pratica-laboratorio-1966.jpeg",t:'Aula Prática Laboratório - 1966',d:'Aula Prática Laboratório no Colégio Salesiano, em 1966.',y:'1966',c:'colegio',folder:'SEC-60'},
+  {f:"autoridades-comunidade-educativa-anos50.jpeg",t:'Autoridades Comunidade Educativa - 1950',d:'Autoridades Comunidade Educativa no Colégio Salesiano, na década de 1950.',y:'1950',c:'shows',folder:'Sec-50'},
+  {f:"biblioteca-1970-b.jpeg",t:'Biblioteca (2) - 1970',d:'Biblioteca no Colégio Salesiano, em 1970 (Outro registro.)',y:'1970',c:'colegio',folder:'SEC-70'},
+  {f:"biblioteca-1970.jpeg",t:'Biblioteca - 1970',d:'Biblioteca no Colégio Salesiano, em 1970.',y:'1970',c:'colegio',folder:'SEC-70'},
+  {f:"biblioteca-e-quadra-domingos-savio-1970-b.jpeg",t:'Biblioteca e Quadra Domingos Sávio (2) - 1970',d:'Biblioteca e Quadra Domingos Sávio no Colégio Salesiano, em 1970 (Outro registro.)',y:'1970',c:'ginasio',folder:'SEC-70'},
+  {f:"biblioteca-e-quadra-domingos-savio-1970.jpeg",t:'Biblioteca e Quadra Domingos Sávio - 1970',d:'Biblioteca e Quadra Domingos Sávio no Colégio Salesiano, em 1970.',y:'1970',c:'ginasio',folder:'SEC-70'},
+  {f:"bibliotecarias-do-salesiano-anos90.jpeg",t:'Bibliotecárias do Salesiano - 1990',d:'Bibliotecárias do Salesiano no Colégio Salesiano, na década de 1990.',y:'1990',c:'escola',folder:'SEC-90'},
+  {f:"celebracao-bencao-do-terreno-colegio-salesiano-1948-b.jpeg",t:'Celebração Benção do Terreno Colégio Salesiano (2) - 1948',d:'Celebração Benção do Terreno Colégio Salesiano, em 1948 (Outro registro.)',y:'1948',c:'colegio',folder:'SEC-40'},
+  {f:"celebracao-bencao-do-terreno-colegio-salesiano-1948-c.jpeg",t:'Celebração Benção do Terreno Colégio Salesiano (3) - 1948',d:'Celebração Benção do Terreno Colégio Salesiano, em 1948 (Outro registro.)',y:'1948',c:'colegio',folder:'SEC-40'},
+  {f:"celebracao-bencao-do-terreno-colegio-salesiano-1948.jpeg",t:'Celebração Benção do Terreno Colégio Salesiano - 1948',d:'Celebração Benção do Terreno Colégio Salesiano, em 1948.',y:'1948',c:'colegio',folder:'SEC-40'},
+  {f:"circo-thiany-no-colegio-1979.jpeg",t:'Circo Thiany no Colégio - 1979',d:'Circo Thiany no Colégio Salesiano, em 1979.',y:'1979',c:'shows',folder:'SEC-70'},
+  {f:"competicao-de-atletismo-1967-b.jpeg",t:'Competição de Atletismo (2) - 1967',d:'Competição de Atletismo no Colégio Salesiano, em 1967 (Outro registro.)',y:'1967',c:'ginasio',folder:'SEC-60'},
+  {f:"competicao-de-atletismo-1967-c.jpeg",t:'Competição de Atletismo (3) - 1967',d:'Competição de Atletismo no Colégio Salesiano, em 1967 (Outro registro.)',y:'1967',c:'ginasio',folder:'SEC-60'},
+  {f:"competicao-de-atletismo-1967-d.jpeg",t:'Competição de Atletismo (4) - 1967',d:'Competição de Atletismo no Colégio Salesiano, em 1967 (Outro registro.)',y:'1967',c:'ginasio',folder:'SEC-60'},
+  {f:"competicao-de-atletismo-1967.jpeg",t:'Competição de Atletismo - 1967',d:'Competição de Atletismo no Colégio Salesiano, em 1967.',y:'1967',c:'ginasio',folder:'SEC-60'},
+  {f:"comunidade-educativa-1985.jpeg",t:'Comunidade Educativa - 1985',d:'Comunidade Educativa no Colégio Salesiano, em 1985.',y:'1985',c:'shows',folder:'SEC-80'},
+  {f:"corredor-do-colegio-anos80.jpeg",t:'Corredor do Colégio - 1980',d:'Corredor do Colégio no Colégio Salesiano, na década de 1980.',y:'1980',c:'patio',folder:'SEC-80'},
+  {f:"corrida-no-patio-anos90-b.jpeg",t:'Corrida no Pátio (2) - 1990',d:'Corrida no Pátio no Colégio Salesiano, na década de 1990 (Outro registro.)',y:'1990',c:'ginasio',folder:'SEC-90'},
+  {f:"corrida-no-patio-anos90.jpeg",t:'Corrida no Pátio - 1990',d:'Corrida no Pátio no Colégio Salesiano, na década de 1990.',y:'1990',c:'ginasio',folder:'SEC-90'},
+  {f:"desfile-no-patio-anos80.jpeg",t:'Desfile no Pátio - 1980',d:'Desfile no Pátio no Colégio Salesiano, na década de 1980.',y:'1980',c:'patio',folder:'SEC-80'},
+  {f:"escritorio-do-diretor-1953.jpeg",t:'Escritório do Diretor - 1953',d:'Escritório do Diretor no Colégio Salesiano, em 1953.',y:'1953',c:'colegio',folder:'Sec-50'},
+  {f:"evento-arquibancada-ginasio.jpeg",t:'Evento Arquibancada Ginásio - 1980',d:'Evento Arquibancada Ginásio no Colégio Salesiano, na década de 1980.',y:'1980',c:'ginasio',folder:'SEC-80'},
+  {f:"evento-no-colegio-anos90.jpeg",t:'Evento no Colégio - 1990',d:'Evento no Colégio Salesiano, na década de 1990.',y:'1990',c:'colegio',folder:'SEC-90'},
+  {f:"evento-no-ginasio-anos80.jpeg",t:'Evento no Ginásio - 1980',d:'Evento no Ginásio no Colégio Salesiano, na década de 1980.',y:'1980',c:'ginasio',folder:'SEC-80'},
+  {f:"evento-no-patio-anos80.jpeg",t:'Evento no Pátio - 1980',d:'Evento no Pátio no Colégio Salesiano, na década de 1980.',y:'1980',c:'patio',folder:'SEC-80'},
+  {f:"exibicao-de-ginastica-1967.jpeg",t:'Exibição de Ginástica - 1967',d:'Exibição de Ginástica no Colégio Salesiano, em 1967.',y:'1967',c:'ginasio',folder:'SEC-60'},
+  {f:"fachada-colegio-salesiano-anos70.jpeg",t:'Fachada Colégio Salesiano - 1970',d:'Fachada Colégio Salesiano, na década de 1970.',y:'1970',c:'colegio',folder:'SEC-70'},
+  {f:"fase-de-acabamento-predio-forte-sao-joao-1949-b.jpeg",t:'Fase de Acabamento Prédio Forte São João (2) - 1949',d:'Fase de Acabamento Prédio Forte São João no Colégio Salesiano, em 1949 (Outro registro.)',y:'1949',c:'colegio',folder:'SEC-40'},
+  {f:"fase-de-acabamento-predio-forte-sao-joao-1949.jpeg",t:'Fase de Acabamento Prédio Forte São João - 1949',d:'Fase de Acabamento Prédio Forte São João no Colégio Salesiano, em 1949.',y:'1949',c:'colegio',folder:'SEC-40'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-b.jpeg",t:'Fases da Construção Ginásio Dom Bosco (2) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-c.jpeg",t:'Fases da Construção Ginásio Dom Bosco (3) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-d.jpeg",t:'Fases da Construção Ginásio Dom Bosco (4) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-e.jpeg",t:'Fases da Construção Ginásio Dom Bosco (5) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-f.jpeg",t:'Fases da Construção Ginásio Dom Bosco (6) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-g.jpeg",t:'Fases da Construção Ginásio Dom Bosco (7) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-h.jpeg",t:'Fases da Construção Ginásio Dom Bosco (8) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-i.jpeg",t:'Fases da Construção Ginásio Dom Bosco (9) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-j.jpeg",t:'Fases da Construção Ginásio Dom Bosco (10) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-k.jpeg",t:'Fases da Construção Ginásio Dom Bosco (11) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979-l.jpeg",t:'Fases da Construção Ginásio Dom Bosco (12) - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"fases-da-construcao-ginasio-dom-bosco-1979.jpeg",t:'Fases da Construção Ginásio Dom Bosco - 1979',d:'Fases da Construção Ginásio Dom Bosco no Colégio Salesiano, em 1979.',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"feira-de-ciencias.jpeg",t:'Feira de Ciências - 1990',d:'Feira de Ciências no Colégio Salesiano, na década de 1990.',y:'1990',c:'colegio',folder:'SEC-90'},
+  {f:"festa-do-folclore-anos80.jpeg",t:'Festa do Folclore - 1980',d:'Festa do Folclore no Colégio Salesiano, na década de 1980.',y:'1980',c:'shows',folder:'SEC-80'},
+  {f:"festival-estudantil-de-musica-1976.jpeg",t:'Festival Estudantil de Música - 1976',d:'Festival Estudantil de Música no Colégio Salesiano, em 1976.',y:'1976',c:'shows',folder:'SEC-70'},
+  {f:"formatura-do-1-grau-1951-b.jpeg",t:'Formatura do 1º Grau (2) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
+  {f:"formatura-do-1-grau-1951-c.jpeg",t:'Formatura do 1º Grau (3) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
+  {f:"formatura-do-1-grau-1951-d.jpeg",t:'Formatura do 1º Grau (4) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
+  {f:"formatura-do-1-grau-1951-e.jpeg",t:'Formatura do 1º Grau (5) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
+  {f:"formatura-do-1-grau-1951-f.jpeg",t:'Formatura do 1º Grau (6) - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'shows',folder:'Sec-50'},
+  {f:"formatura-do-1-grau-1951.jpeg",t:'Formatura do 1º Grau - 1951',d:'Formatura do 1º Grau no Colégio Salesiano, em 1951.',y:'1951',c:'shows',folder:'Sec-50'},
+  {f:"fundacao-1a-estaca-colegio-salesiano-1948.jpeg",t:'Fundação 1ª Estaca Colégio Salesiano - 1948',d:'Fundação 1ª Estaca Colégio Salesiano, em 1948.',y:'1948',c:'colegio',folder:'SEC-40'},
+  {f:"grupo-no-salao-anos70.jpeg",t:'Grupo no Salão - 1970',d:'Grupo no Salão no Colégio Salesiano, na década de 1970.',y:'1970',c:'escola',folder:'SEC-70'},
+  {f:"inauguracao-da-cantina-anos90-b.jpeg",t:'Inauguração da Cantina (2) - 1990',d:'Inauguração da Cantina no Colégio Salesiano, na década de 1990 (Outro registro.)',y:'1990',c:'colegio',folder:'SEC-90'},
+  {f:"inauguracao-da-cantina-anos90-c.jpeg",t:'Inauguração da Cantina (3) - 1990',d:'Inauguração da Cantina no Colégio Salesiano, na década de 1990 (Outro registro.)',y:'1990',c:'colegio',folder:'SEC-90'},
+  {f:"inauguracao-da-cantina-anos90-d.jpeg",t:'Inauguração da Cantina (4) - 1990',d:'Inauguração da Cantina no Colégio Salesiano, na década de 1990 (Outro registro.)',y:'1990',c:'colegio',folder:'SEC-90'},
+  {f:"inauguracao-da-cantina-anos90-e.jpeg",t:'Inauguração da Cantina (5) - 1990',d:'Inauguração da Cantina no Colégio Salesiano, na década de 1990 (Outro registro.)',y:'1990',c:'colegio',folder:'SEC-90'},
+  {f:"inauguracao-da-cantina-anos90.jpeg",t:'Inauguração da Cantina - 1990',d:'Inauguração da Cantina no Colégio Salesiano, na década de 1990.',y:'1990',c:'colegio',folder:'SEC-90'},
+  {f:"inauguracao-do-predio-atual-1951-b.jpeg",t:'Inauguração do Prédio Atual (2) - 1951',d:'Inauguração do Prédio Atual no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'colegio',folder:'Sec-50'},
+  {f:"inauguracao-do-predio-atual-1951-c.jpeg",t:'Inauguração do Prédio Atual (3) - 1951',d:'Inauguração do Prédio Atual no Colégio Salesiano, em 1951 (Outro registro.)',y:'1951',c:'colegio',folder:'Sec-50'},
+  {f:"inauguracao-do-predio-atual-1951.jpeg",t:'Inauguração do Prédio Atual - 1951',d:'Inauguração do Prédio Atual no Colégio Salesiano, em 1951.',y:'1951',c:'colegio',folder:'Sec-50'},
+  {f:"inauguracao-ginasio-dom-bosco-1979-b.jpeg",t:'Inauguração Ginásio Dom Bosco (2) - 1979',d:'Inauguração Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"inauguracao-ginasio-dom-bosco-1979-c.jpeg",t:'Inauguração Ginásio Dom Bosco (3) - 1979',d:'Inauguração Ginásio Dom Bosco no Colégio Salesiano, em 1979 (Outro registro.)',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"inauguracao-ginasio-dom-bosco-1979.jpeg",t:'Inauguração Ginásio Dom Bosco - 1979',d:'Inauguração Ginásio Dom Bosco no Colégio Salesiano, em 1979.',y:'1979',c:'ginasio',folder:'SEC-70'},
+  {f:"inauguracao-painel-dom-bosco-ginasio-1980.jpeg",t:'Inauguração Painel Dom Bosco Ginásio - 1980',d:'Inauguração Painel Dom Bosco Ginásio no Colégio Salesiano, em 1980.',y:'1980',c:'ginasio',folder:'SEC-80'},
+  {f:"instalacoes-internas-1a-sede-1943.jpeg",t:'Instalações Internas 1ª Sede - 1943',d:'Instalações Internas 1ª Sede no Colégio Salesiano, em 1943.',y:'1943',c:'colegio',folder:'SEC-40'},
+  {f:"inter-salesianos-vitoria-x-niteroi-1976-b.jpeg",t:'Inter Salesianos Vitória x Niterói (2) - 1976',d:'Inter Salesianos Vitória x Niterói no Colégio Salesiano, em 1976 (Outro registro.)',y:'1976',c:'ginasio',folder:'SEC-70'},
+  {f:"inter-salesianos-vitoria-x-niteroi-1976-c.jpeg",t:'Inter Salesianos Vitória x Niterói (3) - 1976',d:'Inter Salesianos Vitória x Niterói no Colégio Salesiano, em 1976 (Outro registro.)',y:'1976',c:'ginasio',folder:'SEC-70'},
+  {f:"inter-salesianos-vitoria-x-niteroi-1976.jpeg",t:'Inter Salesianos Vitória x Niterói - 1976',d:'Inter Salesianos Vitória x Niterói no Colégio Salesiano, em 1976.',y:'1976',c:'ginasio',folder:'SEC-70'},
+  {f:"intersalesianos-1975-b.jpeg",t:'Intersalesianos (2) - 1975',d:'Intersalesianos no Colégio Salesiano, em 1975 (Outro registro.)',y:'1975',c:'ginasio',folder:'SEC-70'},
+  {f:"intersalesianos-1975-c.jpeg",t:'Intersalesianos (3) - 1975',d:'Intersalesianos no Colégio Salesiano, em 1975 (Outro registro.)',y:'1975',c:'ginasio',folder:'SEC-70'},
+  {f:"intersalesianos-1975.jpeg",t:'Intersalesianos - 1975',d:'Intersalesianos no Colégio Salesiano, em 1975.',y:'1975',c:'ginasio',folder:'SEC-70'},
+  {f:"intersalesianos-1976-b.jpeg",t:'Intersalesianos (2) - 1976',d:'Intersalesianos no Colégio Salesiano, em 1976 (Outro registro.)',y:'1976',c:'ginasio',folder:'SEC-70'},
+  {f:"intersalesianos-1976-c.jpeg",t:'Intersalesianos (3) - 1976',d:'Intersalesianos no Colégio Salesiano, em 1976 (Outro registro.)',y:'1976',c:'ginasio',folder:'SEC-70'},
+  {f:"intersalesianos-1976-d.jpeg",t:'Intersalesianos (4) - 1976',d:'Intersalesianos no Colégio Salesiano, em 1976 (Outro registro.)',y:'1976',c:'ginasio',folder:'SEC-70'},
+  {f:"intersalesianos-1976.jpeg",t:'Intersalesianos - 1976',d:'Intersalesianos no Colégio Salesiano, em 1976.',y:'1976',c:'ginasio',folder:'SEC-70'},
+  {f:"iv-jopes-campeao-futebol-salao-1971.jpeg",t:'IV JOPES Campeão Futebol Salão - 1971',d:'IV JOPES Campeão Futebol Salão no Colégio Salesiano, em 1971.',y:'1971',c:'ginasio',folder:'SEC-70'},
+  {f:"jogos-do-pre-universitario-1985.jpeg",t:'Jogos do Pré Universitário - 1985',d:'Jogos do Pré Universitário no Colégio Salesiano, em 1985.',y:'1985',c:'ginasio',folder:'SEC-80'},
+  {f:"laboratorio-de-fisica-1963-b.jpeg",t:'Laboratório de Física (2) - 1963',d:'Laboratório de Física no Colégio Salesiano, em 1963 (Outro registro.)',y:'1963',c:'colegio',folder:'SEC-60'},
+  {f:"laboratorio-de-fisica-1963-c.jpeg",t:'Laboratório de Física (3) - 1963',d:'Laboratório de Física no Colégio Salesiano, em 1963 (Outro registro.)',y:'1963',c:'colegio',folder:'SEC-60'},
+  {f:"laboratorio-de-fisica-1963-d.jpeg",t:'Laboratório de Física (4) - 1963',d:'Laboratório de Física no Colégio Salesiano, em 1963 (Outro registro.)',y:'1963',c:'colegio',folder:'SEC-60'},
+  {f:"laboratorio-de-fisica-1963.jpeg",t:'Laboratório de Física - 1963',d:'Laboratório de Física no Colégio Salesiano, em 1963.',y:'1963',c:'colegio',folder:'SEC-60'},
+  {f:"missa-de-encerramento-do-ano-escolar-1988-b.jpeg",t:'Missa de Encerramento do Ano Escolar (2) - 1988',d:'Missa de Encerramento do Ano Escolar no Colégio Salesiano, em 1988 (Outro registro.)',y:'1988',c:'colegio',folder:'SEC-80'},
+  {f:"missa-de-encerramento-do-ano-escolar-1988-c.jpeg",t:'Missa de Encerramento do Ano Escolar (3) - 1988',d:'Missa de Encerramento do Ano Escolar no Colégio Salesiano, em 1988 (Outro registro.)',y:'1988',c:'colegio',folder:'SEC-80'},
+  {f:"missa-de-encerramento-do-ano-escolar-1988-d.jpeg",t:'Missa de Encerramento do Ano Escolar (4) - 1988',d:'Missa de Encerramento do Ano Escolar no Colégio Salesiano, em 1988 (Outro registro.)',y:'1988',c:'colegio',folder:'SEC-80'},
+  {f:"missa-de-encerramento-do-ano-escolar-1988-e.jpeg",t:'Missa de Encerramento do Ano Escolar (5) - 1988',d:'Missa de Encerramento do Ano Escolar no Colégio Salesiano, em 1988 (Outro registro.)',y:'1988',c:'colegio',folder:'SEC-80'},
+  {f:"missa-de-encerramento-do-ano-escolar-1988-f.jpeg",t:'Missa de Encerramento do Ano Escolar (6) - 1988',d:'Missa de Encerramento do Ano Escolar no Colégio Salesiano, em 1988 (Outro registro.)',y:'1988',c:'colegio',folder:'SEC-80'},
+  {f:"missa-de-encerramento-do-ano-escolar-1988.jpeg",t:'Missa de Encerramento do Ano Escolar - 1988',d:'Missa de Encerramento do Ano Escolar no Colégio Salesiano, em 1988.',y:'1988',c:'colegio',folder:'SEC-80'},
+  {f:"missa-solene-te-deum-pe-godofredo-1954-b.jpeg",t:'Missa Solene Te Deum Pe. Godofredo (2) - 1954',d:'Missa Solene Te Deum Pe. Godofredo no Colégio Salesiano, em 1954 (Outro registro.)',y:'1954',c:'colegio',folder:'Sec-50'},
+  {f:"missa-solene-te-deum-pe-godofredo-1954.jpeg",t:'Missa Solene Te Deum Pe. Godofredo - 1954',d:'Missa Solene Te Deum Pe. Godofredo no Colégio Salesiano, em 1954.',y:'1954',c:'colegio',folder:'Sec-50'},
+  {f:"nosso-patio-e-festivo-anos90.jpeg",t:'Nosso Pátio e Festivo - 1990',d:'Nosso Pátio e Festivo no Colégio Salesiano, na década de 1990.',y:'1990',c:'patio',folder:'SEC-90'},
+  {f:"oratorio-festivo-1957-b.jpeg",t:'Oratório Festivo (2) - 1957',d:'Oratório Festivo no Colégio Salesiano, em 1957 (Outro registro.)',y:'1957',c:'shows',folder:'Sec-50'},
+  {f:"oratorio-festivo-1957.jpeg",t:'Oratório Festivo - 1957',d:'Oratório Festivo no Colégio Salesiano, em 1957.',y:'1957',c:'shows',folder:'Sec-50'},
+  {f:"orientadora-com-alunos-anos90.jpeg",t:'Orientadora com Alunos - 1990',d:'Orientadora com Alunos no Colégio Salesiano, na década de 1990.',y:'1990',c:'escola',folder:'SEC-90'},
+  {f:"painel-de-azulejo-dom-bosco-anos90.jpeg",t:'Painel de Azulejo Dom Bosco - 1990',d:'Painel de Azulejo Dom Bosco no Colégio Salesiano, na década de 1990.',y:'1990',c:'colegio',folder:'SEC-90'},
+  {f:"panoramica-colegio-salesiano-1981-b.jpeg",t:'Panorâmica Colégio Salesiano (2) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-c.jpeg",t:'Panorâmica Colégio Salesiano (3) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-d.jpeg",t:'Panorâmica Colégio Salesiano (4) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-e.jpeg",t:'Panorâmica Colégio Salesiano (5) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-f.jpeg",t:'Panorâmica Colégio Salesiano (6) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-g.jpeg",t:'Panorâmica Colégio Salesiano (7) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-h.jpeg",t:'Panorâmica Colégio Salesiano (8) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-i.jpeg",t:'Panorâmica Colégio Salesiano (9) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-j.jpeg",t:'Panorâmica Colégio Salesiano (10) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-k.jpeg",t:'Panorâmica Colégio Salesiano (11) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981-l.jpeg",t:'Panorâmica Colégio Salesiano (12) - 1981',d:'Panorâmica Colégio Salesiano, em 1981 (Outro registro.)',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"panoramica-colegio-salesiano-1981.jpeg",t:'Panorâmica Colégio Salesiano - 1981',d:'Panorâmica Colégio Salesiano, em 1981.',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"pe-roque-batista-vigliatti-ensaio-clerigos-1957.jpeg",t:'Pe. Roque Batista Vigliatti Ensaio Clérigos - 1957',d:'Pe. Roque Batista Vigliatti Ensaio Clérigos no Colégio Salesiano, em 1957.',y:'1957',c:'colegio',folder:'Sec-50'},
+  {f:"portico-para-ginastica-1952-b.jpeg",t:'Pórtico para Ginástica (2) - 1952',d:'Pórtico para Ginástica no Colégio Salesiano, em 1952 (Outro registro.)',y:'1952',c:'ginasio',folder:'Sec-50'},
+  {f:"portico-para-ginastica-1952.jpeg",t:'Pórtico para Ginástica - 1952',d:'Pórtico para Ginástica no Colégio Salesiano, em 1952.',y:'1952',c:'ginasio',folder:'Sec-50'},
+  {f:"premiacao-de-final-de-ano-1955-b.jpeg",t:'Premiação de Final de Ano (2) - 1955',d:'Premiação de Final de Ano no Colégio Salesiano, em 1955 (Outro registro.)',y:'1955',c:'shows',folder:'Sec-50'},
+  {f:"premiacao-de-final-de-ano-1955.jpeg",t:'Premiação de Final de Ano - 1955',d:'Premiação de Final de Ano no Colégio Salesiano, em 1955.',y:'1955',c:'shows',folder:'Sec-50'},
+  {f:"primeiro-predio-colegio-salesiano-1950-b.jpeg",t:'Primeiro Prédio Colégio Salesiano (2) - 1950',d:'Primeiro Prédio Colégio Salesiano, em 1950 (Outro registro.)',y:'1950',c:'colegio',folder:'Sec-50'},
+  {f:"primeiro-predio-colegio-salesiano-1950-c.jpeg",t:'Primeiro Prédio Colégio Salesiano (3) - 1950',d:'Primeiro Prédio Colégio Salesiano, em 1950 (Outro registro.)',y:'1950',c:'colegio',folder:'Sec-50'},
+  {f:"primeiro-predio-colegio-salesiano-1950.jpeg",t:'Primeiro Prédio Colégio Salesiano - 1950',d:'Primeiro Prédio Colégio Salesiano, em 1950.',y:'1950',c:'colegio',folder:'Sec-50'},
+  {f:"quadra-domingos-savio-1970-b.jpeg",t:'Quadra Domingos Sávio (2) - 1970',d:'Quadra Domingos Sávio no Colégio Salesiano, em 1970 (Outro registro.)',y:'1970',c:'ginasio',folder:'SEC-70'},
+  {f:"quadra-domingos-savio-1970.jpeg",t:'Quadra Domingos Sávio - 1970',d:'Quadra Domingos Sávio no Colégio Salesiano, em 1970.',y:'1970',c:'ginasio',folder:'SEC-70'},
+  {f:"sala-de-aula-1981.jpeg",t:'Sala de Aula - 1981',d:'Sala de Aula no Colégio Salesiano, em 1981.',y:'1981',c:'colegio',folder:'SEC-80'},
+  {f:"torneio-mirim-1973-b.jpeg",t:'Torneio Mirim (2) - 1973',d:'Torneio Mirim no Colégio Salesiano, em 1973 (Outro registro.)',y:'1973',c:'ginasio',folder:'SEC-70'},
+  {f:"torneio-mirim-1973.jpeg",t:'Torneio Mirim - 1973',d:'Torneio Mirim no Colégio Salesiano, em 1973.',y:'1973',c:'ginasio',folder:'SEC-70'},
+  {f:"vista-antiga-do-colegio-salesiano-anos50.jpeg",t:'Vista Antiga do Colégio Salesiano - 1950',d:'Vista Antiga do Colégio Salesiano, na década de 1950.',y:'1950',c:'colegio',folder:'Sec-50'},
+  ];
+
+
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
   function el(html){const t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstElementChild;}
 
@@ -119,7 +257,7 @@
   function renderList(timeline, list, folder) {
     list.forEach(function (item) {
       var modalId = 'modalSec' + (__modalSeq++);
-      var src = 'images/historia/' + folder + '/' + encodeURIComponent(item.f);
+      var src = 'images/historia/' + (item.folder || folder) + '/' + encodeURIComponent(item.f);
       var card = el(
         '<div class="timeline-item" data-keywords="' + esc(item.c) + '" data-category="' + esc(item.c) + '">' +
           '<div class="timeline-date">' + esc(item.y) + '</div>' +
@@ -153,8 +291,11 @@
   document.addEventListener('DOMContentLoaded', function () {
     var timeline = document.querySelector('#historia .timeline');
     if (!timeline) return;
-    renderList(timeline, SEC70, 'SEC-70');
-    renderList(timeline, SEC90, 'SEC-90');
+    SEC70.forEach(function (x) { x.folder = 'SEC-70'; });
+    SEC90.forEach(function (x) { x.folder = 'SEC-90'; });
+    var all = SEC70.concat(SEC90).concat(SADAS);
+    all.sort(function (a, b) { return (parseInt(a.y, 10) || 0) - (parseInt(b.y, 10) || 0); });
+    renderList(timeline, all, null);
     if (typeof applyTimelineAlternation === 'function') applyTimelineAlternation();
   });
 
